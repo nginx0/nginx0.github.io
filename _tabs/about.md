@@ -5,5 +5,8 @@ order: 4
 
 ### When did the future switch from being a promise to being a threat?
 
-![Alt text]({{ site.baseurl }}/assets/img/FGlWuWoXwAAQNYl.png)
+<div style="text-align: left;">
+  <img src="/assets/img/FGlWuWoXwAAQNYl.png" alt="Alt text">
+</div>
+
 
