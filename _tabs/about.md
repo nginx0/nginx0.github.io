@@ -7,9 +7,3 @@ order: 4
 
 ![Alt text]({{ site.baseurl }}/assets/img/FGlWuWoXwAAQNYl.png)
 
-
-
-
-
-
-
