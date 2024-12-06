@@ -1,3 +1,3 @@
-# nginx0.github.io
+# nginx0
 
 https://nginx0.github.io
