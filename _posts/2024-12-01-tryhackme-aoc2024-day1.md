@@ -1,5 +1,5 @@
 ---
-title: "TryHackMe: Advent Of Cyber 2024 Day 1 : Maybe SOC-mas music, he thought, doesn't come from a store?"
+title: "TryHackMe: Advent Of Cyber 2024 Day 1"
 categories: [TryHackMe]
 tags: [web, vhost, subdomain, ufw, firewall, ftp, sudo, apt]
 render_with_liquid: false
@@ -8,9 +8,41 @@ image:
   path: main_banner.png
 ---
 
-Dodge started by inspecting the certificate of a https webserver to get a list of subdomains and enumerating these subdomains to find a PHP endpoint that allowed disabling the UFW firewall. After disabling the firewall, it was possible to access a FTP server and get a SSH key for a user, which allowed us to get a shell on the machine. After this, using port forwarding to access an internal website and logging in with the credentials found in the comments of the same website gave us credentials for another user. With this new user, we were able to abuse sudo privileges and get a shell as root.
+McSkidy's fingers flew across the keyboard, her eyes narrowing at the suspicious website on her screen. She had seen dozens of malware campaigns like this. This time, the trail led straight to someone who went by the name "Glitch."
+
+"Too easy," she muttered with a smirk.
+
+"I still have time," she said, leaning closer to the screen. "Maybe there's more."
+
+Little did she know, beneath the surface lay something far more complex than a simple hacker's handle. This was just the beginning of a tangled web unravelling everything she thought she knew.
+
+
 
 ![Tryhackme Room Link](bell.svg){: width="1152" height="300" .shadow }
-_<https://tryhackme.com/room/dodge>_
+_<https://tryhackme.com/r/room/adventofcyber2024>_
 
 
+![](home.png){: width="900" height="800"}
+
+
+## Learning Objectives
+
+- Learn how to investigate malicious link files.
+- Learn about OPSEC and OPSEC mistakes.
+- Understand how to track and attribute digital identities in cyber investigations.
+
+
+## Investigating the Website
+
+### The website we are investigating is a Youtube to MP3 converter currently being shared amongst the organizers of SOC-mas. You've decided to dig deeper after hearing some concerning reports about this website.
+
+![Glitch All-In-One Converter](converter.png){: width="1321" height="726"}
+
+
+### Youtube to MP3 Converter Websites
+
+These websites have been around for a long time. They offer a convenient way to extract audio from YouTube videos, making them popular. However, historically, these websites have been observed to have significant risks, such as:
+
+Malvertising: Many sites contain malicious ads that can exploit vulnerabilities in a user's system, which could lead to infection.
+Phishing scams: Users can be tricked into providing personal or sensitive information via fake surveys or offers.
+Bundled malware: Some converters may come with malware, tricking users into unknowingly running it.
