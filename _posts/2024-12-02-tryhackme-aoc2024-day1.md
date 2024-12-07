@@ -16,6 +16,7 @@ McSkidy's fingers flew across the keyboard, her eyes narrowing at the suspicious
 
 Little did she know, beneath the surface lay something far more complex than a simple hacker's handle. This was just the beginning of a tangled web unravelling everything she thought she knew.
 
+![Main Banner](/images/tryhackme_aoc2024_day1/main_banner.png){: .center }
 
 
 ![Tryhackme Room Link](bell.svg){: width="1152" height="300" .shadow }
