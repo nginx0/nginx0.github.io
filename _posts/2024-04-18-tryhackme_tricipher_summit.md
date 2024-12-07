@@ -1,6 +1,5 @@
 ---
 title: 'TryHackMe: TriCipher Summit'
-author: jaxafed
 categories: [TryHackMe]
 tags: [web, js, crypto, python, blockchain, foundry]
 render_with_liquid: false

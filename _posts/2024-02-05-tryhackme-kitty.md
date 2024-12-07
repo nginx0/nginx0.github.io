@@ -1,6 +1,5 @@
 ---
 title: 'TryHackMe: Kitty'
-author: jaxafed
 categories: [TryHackMe]
 tags: [web, php, sqli, ssh, cron, command injection]
 render_with_liquid: false

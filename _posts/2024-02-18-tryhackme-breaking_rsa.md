@@ -1,6 +1,5 @@
 ---
 title: 'TryHackMe: Breaking RSA'
-author: jaxafed
 categories: [TryHackMe]
 tags: [web, rsa, cryptography, python, ssh]
 render_with_liquid: false

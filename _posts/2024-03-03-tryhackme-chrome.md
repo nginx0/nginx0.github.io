@@ -1,6 +1,5 @@
 ---
 title: 'TryHackMe: Chrome'
-author: jaxafed
 categories: [TryHackMe]
 tags: [pcap, smb, wireshark, dnspy, windows, chrome, dpapi, mimikatz]
 render_with_liquid: false

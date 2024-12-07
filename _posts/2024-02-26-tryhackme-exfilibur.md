@@ -1,6 +1,5 @@
 ---
 title: 'TryHackMe: Exfilibur'
-author: jaxafed
 categories: [TryHackMe]
 tags: [web, cve, file disclosure, xxe, firewall, rce, windows, privilege]
 render_with_liquid: false

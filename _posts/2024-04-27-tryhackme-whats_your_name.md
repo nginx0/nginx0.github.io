@@ -1,6 +1,5 @@
 ---
 title: 'TryHackMe: Whats Your Name?'
-author: jaxafed
 categories: [TryHackMe]
 tags: [web, js, xss, csrf]
 render_with_liquid: false

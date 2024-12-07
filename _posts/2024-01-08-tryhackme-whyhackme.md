@@ -1,6 +1,5 @@
 ---
 title: 'TryHackMe: WhyHackMe'
-author: jaxafed
 categories: [TryHackMe]
 tags: [ftp, web, xss, sudo, iptables, firewall, pcap, tls, cgi-bin]
 render_with_liquid: false

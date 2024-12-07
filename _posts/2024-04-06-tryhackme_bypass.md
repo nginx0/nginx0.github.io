@@ -1,6 +1,5 @@
 ---
 title: 'TryHackMe: Bypass'
-author: jaxafed
 categories: [TryHackMe]
 tags: [web, nc, curl, ping, rce]
 render_with_liquid: false

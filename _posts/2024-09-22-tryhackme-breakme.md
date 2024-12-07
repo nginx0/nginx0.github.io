@@ -1,6 +1,5 @@
 ---
 title: "TryHackMe: Breakme"
-author: jaxafed
 categories: [TryHackMe]
 tags: [web, ffuf, fuzz, wordpress, brute-force, chisel, command injection, race condition, sudo, python, jail]
 render_with_liquid: false

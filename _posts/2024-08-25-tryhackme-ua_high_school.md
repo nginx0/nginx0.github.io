@@ -1,6 +1,5 @@
 ---
 title: "TryHackMe: U.A. High School"
-author: jaxafed
 categories: [TryHackMe]
 tags: [web, ffuf, fuzz, php, steganography, sudo, arbitrary file write]
 render_with_liquid: false

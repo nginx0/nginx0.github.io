@@ -1,6 +1,5 @@
 ---
 title: 'TryHackMe: Umbrella'
-author: jaxafed
 categories: [TryHackMe]
 tags: [web, node, docker, mysql, rce]
 render_with_liquid: false
