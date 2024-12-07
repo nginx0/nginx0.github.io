@@ -1,5 +1,5 @@
 ---
-title: 'TryHackMe: Advent Of Cyber 2024 : Day 1'
+title: "TryHackMe: Advent Of Cyber 2024 Day 1 : Maybe SOC-mas music, he thought, doesn't come from a store?"
 categories: [TryHackMe]
 tags: [web, vhost, subdomain, ufw, firewall, ftp, sudo, apt]
 render_with_liquid: false
@@ -12,4 +12,5 @@ Dodge started by inspecting the certificate of a https webserver to get a list o
 
 ![Tryhackme Room Link](bell.svg){: width="1152" height="300" .shadow }
 _<https://tryhackme.com/room/dodge>_
+
 
