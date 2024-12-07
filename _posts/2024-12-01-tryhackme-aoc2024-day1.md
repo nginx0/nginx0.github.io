@@ -3,7 +3,7 @@ title: 'TryHackMe: Advent Of Cyber 2024 : Day 1'
 categories: [TryHackMe]
 tags: [web, vhost, subdomain, ufw, firewall, ftp, sudo, apt]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024day1/
+img_path: /images/tryhackme_aoc2024_day1/
 image:
   path: main_banner.png
 ---
