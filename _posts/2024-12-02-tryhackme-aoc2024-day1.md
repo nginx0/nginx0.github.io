@@ -34,7 +34,7 @@ _<https://tryhackme.com/r/room/adventofcyber2024>_
 
 ## Investigating the Website
 
-### The website we are investigating is a Youtube to MP3 converter currently being shared amongst the organizers of SOC-mas. You've decided to dig deeper after hearing some concerning reports about this website.
+The website we are investigating is a Youtube to MP3 converter currently being shared amongst the organizers of SOC-mas. You've decided to dig deeper after hearing some concerning reports about this website.
 
 ![Glitch All-In-One Converter](converter.png){: width="1321" height="726"}
 
