@@ -5,7 +5,7 @@ tags: [web, vhost, subdomain, ufw, firewall, ftp, sudo, apt]
 render_with_liquid: false
 img_path: /images/tryhackme_aoc2024_day1/
 image:
-  path: room_image.webp
+  path: room_image.png
 ---
 
 McSkidy's fingers flew across the keyboard, her eyes narrowing at the suspicious website on her screen. She had seen dozens of malware campaigns like this. This time, the trail led straight to someone who went by the name "Glitch."
