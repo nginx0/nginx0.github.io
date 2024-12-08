@@ -1,7 +1,7 @@
 ---
 title: "TryHackMe: Advent Of Cyber 2024 Day 1"
 categories: [TryHackMe]
-tags: [web, vhost, subdomain, ufw, firewall, ftp, sudo, apt]
+tags: [opsec, advent of cyber]
 render_with_liquid: false
 img_path: /images/tryhackme_aoc2024_day1/
 image:
@@ -47,3 +47,22 @@ These websites have been around for a long time. They offer a convenient way to 
 Malvertising: Many sites contain malicious ads that can exploit vulnerabilities in a user's system, which could lead to infection.
 Phishing scams: Users can be tricked into providing personal or sensitive information via fake surveys or offers.
 Bundled malware: Some converters may come with malware, tricking users into unknowingly running it.
+
+### Getting Some Tunes
+Let's find out by pasting any YouTube link in the search form and pressing the "Convert" button. Then select either mp3 or mp4 option. This should download a file that we could use to investigate. For example, we can use https://www.youtube.com/watch?v=dQw4w9WgXcQ, a classic if you ask me.
+
+Once downloaded, navigate to your Downloads folder or if you are using the AttackBox, to your /root/ directory. Locate the file named download.zip, right-click on it, and select Extract To. In the dialog window, click the Extract button to complete the extraction.
+
+
+![](extract.png){: width="1209" height="1429"}
+
+You'll now see two extracted two files: **song.mp3** and **somg.mp3.**
+
+To quickly determine the file's contents, double-click on the "Terminal" icon on the desktop then run the file command on each one. First, let's try checking **song.mp3.**
+
+```
+user@tryhackme:~$ file song.mp3
+download.mp3: Audio file with ID3 version 2.3.0, contains:MPEG ADTS, layer III, v1, 192 kbps, 44.1 kHz, Stereo
+
+```
+
