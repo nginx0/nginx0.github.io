@@ -275,7 +275,7 @@ As you can see, we have appended another pipe (|) after our previous filter. Let
 
 | **Command**                                                                                                   | **Description**                                                                                                                                                                                                                   |
 |---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <div align="center">[ .eventTime, .eventName, .userIdentity.userName // "N/A", .requestParameters.bucketName // "N/A", .requestParameters.key // "N/A", .sourceIPAddress // "N/A" ]</div> | The piped filter uses the previous command's output and formats it to only include the defined keys, such as `.eventTime`, `.eventName`, and `.userIdentity.userName`. The defined keys are enclosed with square brackets ([]) to process and create an array with the specified fields from each record. Note that the string `// "N/A"` is included purely for formatting reasons. This means that if the defined key does not have a value, it will display N/A instead. |
+| [ .eventTime, .eventName, .userIdentity.userName // "N/A", .requestParameters.bucketName // "N/A", .requestParameters.key // "N/A", .sourceIPAddress // "N/A" ] | The piped filter uses the previous command's output and formats it to only include the defined keys, such as `.eventTime`, `.eventName`, and `.userIdentity.userName`. The defined keys are enclosed with square brackets ([]) to process and create an array with the specified fields from each record. Note that the string `// "N/A"` is included purely for formatting reasons. This means that if the defined key does not have a value, it will display N/A instead. |
 
 As you can see in the results, we could focus on the notable items, but our initial goal is to render the output in a table to make it easy to digest. Let's upgrade our command with additional parameters.
 
@@ -332,8 +332,9 @@ There are two **User-Agent** values included in all log entries related to the *
 
 | **Command**                                                                                                         | **Description**                                                                                                                                                                                                                                                                           |
 |---------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <p align="center">S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.750 Linux/5.10.226-192.879.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.412-b09 java/1.8.0_412 vendor/Oracle_Corporation cfg/retry-mode/standard</p> | This is the userAgent string for the internal console used in AWS. It doesn’t provide much information.                                                                                                                        |
-| <p align="center">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36</p> | This userAgent string provides us with 2 pieces of interesting information. The anomalous account uses a Google Chrome browser within a Mac OS system.                                                                         |
+| S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.750 Linux/5.10.226-192.879.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.412-b09 java/1.8.0_412 vendor/Oracle_Corporation cfg/retry-mode/standard | This is the userAgent string for the internal console used in AWS. It doesn’t provide much information.                                                                                                                        |
+| Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 | This userAgent string provides us with 2 pieces of interesting information. The anomalous account uses a Google Chrome browser within a Mac OS system. |
+                                                                   |
 
 An experienced attacker can forge these values, but we should not dismiss this information. It can be valuable when comparing different log entries for the same user. We will park the current information for now, let's gather more information to connect the dots.
 
@@ -422,6 +423,7 @@ As shown above, the Care4wares Fund received all the donations until it changed 
 
 | **Timestamp**                | **Source**                          | **Event**                                              |
 |------------------------------|-------------------------------------|--------------------------------------------------------|
-| <div align="center">2024-11-28 15:22:18</div> | <div align="center">CloudWatch RDS logs (rds.log)</div> | <div align="center">Last donation received by the Care4wares Fund.</div> |
-| <div align="center">2024-11-28 15:22:39</div> | <div align="center">CloudTrail logs (cloudtrail_log.json)</div> | <div align="center">Bank details update on S3 bucket.</div> |
-| <div align="center">2024-11-28 15:23:02</div> | <div align="center">CloudWatch RDS logs (rds.log)</div> | <div align="center">First donation received by Mayor Malware.</div> |
+| 2024-11-28 15:22:18          | CloudWatch RDS logs (rds.log)       | Last donation received by the Care4wares Fund.         |
+| 2024-11-28 15:22:39          | CloudTrail logs (cloudtrail_log.json)| Bank details update on S3 bucket.                      |
+| 2024-11-28 15:23:02          | CloudWatch RDS logs (rds.log)       | First donation received by Mayor Malware.              |
+
