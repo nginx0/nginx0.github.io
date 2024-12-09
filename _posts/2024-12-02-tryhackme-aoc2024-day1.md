@@ -261,8 +261,9 @@ Answer :
 
 <div onclick="this.querySelector('p').style.filter='none';" style="cursor:pointer; position:relative; border:1px solid #ccc; padding:10px;">
   <p id="answer" style="filter: blur(5px); transition: filter 0.3s ease;">Tyler Ramsbey</p>
-  <i onclick="navigator.clipboard.writeText(document.getElementById('answer').textContent)" style="position:absolute; top:10px; right:10px; font-size:18px; cursor:pointer;">&#x1F4CB;</i>
+  <i onclick="event.stopPropagation(); navigator.clipboard.writeText(document.getElementById('answer').textContent);" style="position:absolute; top:10px; right:10px; font-size:14px; color: #888; cursor:pointer; opacity: 0.7; transition: opacity 0.3s;">&#x1F4CB;</i>
 </div>
+
 
 
 
