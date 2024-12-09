@@ -227,9 +227,9 @@ In this discussion, they responded to a query about modifying the code. This res
 
 ## What's Next?
 
-<p style="text-align: center;"><em>McSkidy dug deeper, her mind sharp and quick,  
-But something felt off, a peculiar trick.  
-The pieces she’d gathered just didn’t align,  
+<p style="text-align: center;"><em>McSkidy dug deeper, her mind sharp and quick,<br>
+But something felt off, a peculiar trick.<br>
+The pieces she’d gathered just didn’t align,<br>
 A puzzle with gaps, a tangled design.</em></p>
 
 As McSkidy continued digging, a pattern emerged that didn't fit the persona she was piecing together. A different handle appeared in obscure places, buried deep in the details: "MM."
