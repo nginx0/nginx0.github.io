@@ -275,7 +275,7 @@ As you can see, we have appended another pipe (|) after our previous filter. Let
 
 | **Command**                                                                                                   | **Description**                                                                                                                                                                                                                   |
 |---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <p align="center">[ .eventTime, .eventName, .userIdentity.userName // "N/A", .requestParameters.bucketName // "N/A", .requestParameters.key // "N/A", .sourceIPAddress // "N/A" ]</p> | The piped filter uses the previous command's output and formats it to only include the defined keys, such as `.eventTime`, `.eventName`, and `.userIdentity.userName`. The defined keys are enclosed with square brackets ([]) to process and create an array with the specified fields from each record. Note that the string `// "N/A"` is included purely for formatting reasons. This means that if the defined key does not have a value, it will display N/A instead. |
+| <div align="center">[ .eventTime, .eventName, .userIdentity.userName // "N/A", .requestParameters.bucketName // "N/A", .requestParameters.key // "N/A", .sourceIPAddress // "N/A" ]</div> | The piped filter uses the previous command's output and formats it to only include the defined keys, such as `.eventTime`, `.eventName`, and `.userIdentity.userName`. The defined keys are enclosed with square brackets ([]) to process and create an array with the specified fields from each record. Note that the string `// "N/A"` is included purely for formatting reasons. This means that if the defined key does not have a value, it will display N/A instead. |
 
 As you can see in the results, we could focus on the notable items, but our initial goal is to render the output in a table to make it easy to digest. Let's upgrade our command with additional parameters.
 
@@ -328,6 +328,7 @@ ubuntu@tryhackme:~/wareville_logs$ jq -r '["Event_Time", "Event_type", "Event_Na
 ```
 
 There are two **User-Agent** values included in all log entries related to the **glitch** user: 
+
 
 | **Command**                                                                                                         | **Description**                                                                                                                                                                                                                                                                           |
 |---------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -419,10 +420,8 @@ From the command above, McSkidy explained that all INSERT queries from the RDS l
 
 As shown above, the Care4wares Fund received all the donations until it changed into a different account at a specific time. The logs also reveal who received the donations afterwards, given the account owner's name. With all these findings, McSkidy confirmed the assumptions made during the investigation of the S3 bucket since the sudden change in bank details was reflected in the database logs. The timeline of events collected by McSkidy explains the connection of actions conducted by the culprit.
 
-| **Timestamp**              | **Source**                          | **Event**                                              |
-|----------------------------|-------------------------------------|--------------------------------------------------------|
-| <p align="center">2024-11-28 15:22:18</p> | <p align="center">CloudWatch RDS logs (rds.log)</p> | <p align="center">Last donation received by the Care4wares Fund.</p> |
-| <p align="center">2024-11-28 15:22:39</p> | <p align="center">CloudTrail logs (cloudtrail_log.json)</p> | <p align="center">Bank details update on S3 bucket.</p> |
-| <p align="center">2024-11-28 15:23:02</p> | <p align="center">CloudWatch RDS logs (rds.log)</p> | <p align="center">First donation received by Mayor Malware.</p> |
-
-s
+| **Timestamp**                | **Source**                          | **Event**                                              |
+|------------------------------|-------------------------------------|--------------------------------------------------------|
+| <div align="center">2024-11-28 15:22:18</div> | <div align="center">CloudWatch RDS logs (rds.log)</div> | <div align="center">Last donation received by the Care4wares Fund.</div> |
+| <div align="center">2024-11-28 15:22:39</div> | <div align="center">CloudTrail logs (cloudtrail_log.json)</div> | <div align="center">Bank details update on S3 bucket.</div> |
+| <div align="center">2024-11-28 15:23:02</div> | <div align="center">CloudWatch RDS logs (rds.log)</div> | <div align="center">First donation received by Mayor Malware.</div> |
