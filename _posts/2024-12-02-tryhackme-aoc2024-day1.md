@@ -241,7 +241,9 @@ Even though all signs on the website seemed to point to Glitch as the author, it
 
 ## Answer
 
-### Looks like the song.mp3 file is not what we expected! Run "exiftool song.mp3" in your terminal to find out the author of the song. Who is the author? 
+### Question 1
+
+Looks like the song.mp3 file is not what we expected! Run "exiftool song.mp3" in your terminal to find out the author of the song. Who is the author? 
 
 **Download and Examine the Files**
 
@@ -255,9 +257,10 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
 
 ![](exifsong.png){: width="1420" height="647"}
 
-<button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">Reveal Answer</button>
-<div style="display:none;">
-  <p><strong>Tyler Ramsbey</strong></p>
+<button onclick="this.nextElementSibling.style.display='block'; this.style.display='none'; this.nextElementSibling.style.filter='none';">Reveal Answer</button>
+
+<div style="display:none; filter: blur(5px);">
+  <strong>Tyler Ramsbey</strong>
 </div>
 
 
