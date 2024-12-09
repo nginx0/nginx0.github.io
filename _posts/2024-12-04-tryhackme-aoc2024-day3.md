@@ -1,5 +1,5 @@
 ---
-title: "TryHackMe: Advent Of Cyber 2024 Day 2"
+title: "TryHackMe: Advent Of Cyber 2024 Day 3"
 categories: [TryHackMe]
 tags: [log analysis, elastic, rce, ELK, KQL, advent of cyber]
 render_with_liquid: false
