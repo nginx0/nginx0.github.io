@@ -49,7 +49,7 @@ Phishing scams: Users can be tricked into providing personal or sensitive inform
 Bundled malware: Some converters may come with malware, tricking users into unknowingly running it.
 
 ### Getting Some Tunes
-Let's find out by pasting any YouTube link in the search form and pressing the "Convert" button. Then select either mp3 or mp4 option. This should download a file that we could use to investigate. For example, we can use https://www.youtube.com/watch?v=dQw4w9WgXcQ, a classic if you ask me.
+Let's find out by pasting any YouTube link in the search form and pressing the "Convert" button. Then select either mp3 or mp4 option. This should download a file that we could use to investigate. For example, we can use <https://www.youtube.com/watch?v=dQw4w9WgXcQ>, a classic if you ask me.
 
 Once downloaded, navigate to your Downloads folder or if you are using the AttackBox, to your /root/ directory. Locate the file named download.zip, right-click on it, and select Extract To. In the dialog window, click the Extract button to complete the extraction.
 
@@ -140,3 +140,101 @@ function Search-ForWallets {
 
 [Output truncated for brevity]
 ```
+The script is designed to collect highly sensitive information from the victim's system, such as cryptocurrency wallets and saved browser credentials, and send it to an attacker's remote server.
+
+**Disclaimer**: _**All content in this room, including CPP code, PowerShell scripts, and commands, is provided solely for educational purposes. Please do not execute these on a Windows host.**_
+
+This looks fairly typical of a PowerShell script for such a purpose, with one notable exception: a signature in the code that reads.
+
+**Created by the one and only M.M.**
+
+### Searching the Source
+There are many paths we could take to continue our investigation. We could investigate the website further, analyse its source code, or search for open directories that might reveal more information about the malicious actor's setup. We can search for the hash or signature on public malware databases like VirusTotal or Any.Run. Each of these methods could yield useful clues.
+
+However, for this room, we'll try something a bit different. Since we already have the PowerShell code, searching for it online might give us useful leads. It's a long shot, but we'll explore it in this exercise.
+
+There are many places where we can search for code. The most widely used is Github. So let's try searching there.
+
+To search effectively, we can look for unique parts of the code that we could use to search with. The more distinctive, the better. For this scenario, we have the string we've uncovered before that reads:
+
+**"Created by the one and only M.M."**
+
+Search for this on Github.com or by going directly to this link: <https://github.com/search?q=%22Created+by+the+one+and+only+M.M.%22&type=issues>
+
+![](git.png){: width="1678" height="679"}
+
+You'll notice something interesting if you explore the pages in the search results.
+
+## Note!
+If you receive an error below, it's because Github has rate limits in place if you are not signed in. To fix this, you can just sign in with a GitHub account or skip directly to the next step by going here: <https://github.com/Bloatware-WarevilleTHM/CryptoWallet-Search/issues/1>
+
+![](limit.png){: width="970" height="537"}
+
+If you look through the search results, you can be able infer the malicious actor's identity based on information on the project's page and the GitHub Issues section.
+
+![](gitissues.png){: width="1518" height="613"}
+
+Aha! Looks like this user has made a critical mistake.
+
+## Introduction to OPSEC
+
+This is a classic case of OPSEC failure.
+
+Operational Security (OPSEC) is a term originally coined in the military to refer to the process of protecting sensitive information and operations from adversaries. The goal is to identify and eliminate potential vulnerabilities before the attacker can learn their identity.
+
+In the context of cyber security, when malicious actors fail to follow proper OPSEC practices, they might leave digital traces that can be pieced together to reveal their identity. Some common OPSEC mistakes include:
+
+- Reusing usernames, email addresses, or account handles across multiple platforms. One might assume that anyone trying to cover their tracks would remove such obvious and incriminating information, but sometimes, it's due to vanity or simply forgetfulness.
+- Using identifiable metadata in code, documents, or images, which may reveal personal information like device names, GPS coordinates, or timestamps.
+- Posting publicly on forums or GitHub (Like in this current scenario) with details that tie back to their real identity or reveal their location or habits.
+- Failing to use a VPN or proxy while conducting malicious activities allows law enforcement to track their real IP address.
+You'd think that someone doing something bad would make OPSEC their top priority, but they're only human and can make mistakes, too.
+
+For example, here are some real-world OPSEC mistakes that led to some really big fails:
+
+### AlphaBay Admin Takedown
+
+One of the most spectacular OPSEC failures involved Alexandre Cazes, the administrator of AlphaBay, one of the largest dark web marketplaces:
+
+- Cazes used the email address "pimp_alex_91@hotmail.com" in early welcome emails from the site.
+- This email included his year of birth and other identifying information.
+- He cashed out using a Bitcoin account tied to his real name.
+Cazes reused the username "Alpha02" across multiple platforms, linking his dark web identity to forum posts under his real name.
+
+### Chinese Military Hacking Group (APT1)
+
+There's also the notorious Chinese hacking group APT1, which made several OPSEC blunders:
+
+- One member, Wang Dong, signed his malware code with the nickname "Ugly Gorilla".
+- This nickname was linked to programming forum posts associated with his real name.
+- The group used predictable naming conventions for users, code, and passwords.
+- Their activity consistently aligned with Beijing business hours, making their location obvious.
+
+These failures provided enough information for cyber security researchers and law enforcement to publicly identify group members.
+
+## Uncovering MM
+
+If you've thoroughly investigated the GitHub search result, you should have uncovered several clues based on poor OPSEC practices by the malicious actor.
+
+We know the attacker left a distinctive signature in the PowerShell code (MM). This allowed us to search for related repositories and issues pages on GitHub. We then discovered an Issues page where the attacker engaged in discussions, providing more context and linking their activity to other projects.
+
+
+In this discussion, they responded to a query about modifying the code. This response, paired with their unique handle, was another critical slip-up, leaving behind a trail of evidence that can be traced back to them. By analysing the timestamps, usernames, and the nature of their interactions, we can now attribute the mastermind behind the attack to MM.
+
+![](mansion.png){: width="800" height="800"}
+
+In this discussion, they responded to a query about modifying the code. This response, paired with their unique handle, was another critical slip-up, leaving behind a trail of evidence that can be traced back to them. By analysing the timestamps, usernames, and the nature of their interactions, we can now attribute the mastermind behind the attack to MM.
+
+## What's Next?
+
+<p style="text-align: center;"><em>McSkidy dug deeper, her mind sharp and quick,  
+But something felt off, a peculiar trick.  
+The pieces she’d gathered just didn’t align,  
+A puzzle with gaps, a tangled design.</em></p>
+
+As McSkidy continued digging, a pattern emerged that didn't fit the persona she was piecing together. A different handle appeared in obscure places, buried deep in the details: "MM."
+
+"Who's MM?" McSkidy muttered, the mystery deepening.
+
+Even though all signs on the website seemed to point to Glitch as the author, it became clear that someone had gone to great lengths to ensure Glitch's name appeared everywhere. Yet, the scattered traces left by MM suggested a deliberate effort to shift the blame.
+
