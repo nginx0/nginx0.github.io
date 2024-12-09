@@ -262,6 +262,7 @@ Once you execute the final line in the PowerShell terminal and press **Enter**, 
 <div align="center"><i>To fix the shellcode and keep foes at bay.</i></div>  
 <div align="center"><i>He tweaks and he codes to set the wrongs right,</i></div>  
 <div align="center"><i>Protecting his secrets with all of his might.</i></div>
+<br>
 
 Let's dive into the story and troubleshoot the issue in this part of the task. Glitch has realised he's no longer receiving incoming connections from his home base. Mayor Malware's minion team seems to have tampered with the shellcode and updated both the IP and port, preventing Glitch from connecting. The correct IP address for Glitch is **ATTACKBOX_IP**, and the successful connection port should be **4444**.
 
