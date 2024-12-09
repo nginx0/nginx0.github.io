@@ -257,7 +257,6 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
 
 ![](exifsong.png){: width="1420" height="647"}
 
-
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
   <div style="padding:10px; border:1px solid #ccc;">
@@ -265,6 +264,49 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
     <i onclick="navigator.clipboard.writeText('Tyler Ramsbey')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
+
+### Question 2
+
+The malicious PowerShell script sends stolen info to a C2 server. What is the URL of this C2 server?
+
+**Analyse the file with exiftool**
+
+![](fakesong.png){: width="1414" height="530"}
+
+
+**Visit github page mentioned in the exiftool**
+
+![](link.png){: width="863" height="273"}
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('http://papash3ll.thm/data')" style="cursor:pointer;">http://papash3ll.thm/data</span>
+    <i onclick="navigator.clipboard.writeText('http://papash3ll.thm/data')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 3
+
+Who is M.M? Maybe his Github profile page would provide clues?
+
+**Search the signature in GitHub page**
+
+![](mm.png){: width="1174" height="175"}
+
+### Question 4
+
+What is the number of commits on the GitHub repo where the issue was raised?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('1')" style="cursor:pointer;">1</span>
+    <i onclick="navigator.clipboard.writeText('1')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+
 
 
 
