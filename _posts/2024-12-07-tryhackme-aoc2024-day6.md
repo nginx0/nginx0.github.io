@@ -240,6 +240,7 @@ Let's take a look at the EventData that is valuable to us:
 *"If I'm not careful, they'll catch all my fun!"*
 </div>
 
+
 Mayor Malware leaned back, tapping his fingers thoughtfully on the table. All of this research had revealed an unsettling truth: his malware, as cunning as it was, wasn't yet ready for the wild. There were too many tools and too many vigilant eyes—analysts armed with YARA rules, Sysmon, and a host of detection techniques that could expose his creation before it even had a chance to spread.
 
 ![](mayor.png){: width="804" height="768"}
