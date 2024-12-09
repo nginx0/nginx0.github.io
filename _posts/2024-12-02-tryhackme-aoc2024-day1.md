@@ -238,3 +238,32 @@ As McSkidy continued digging, a pattern emerged that didn't fit the persona she 
 
 Even though all signs on the website seemed to point to Glitch as the author, it became clear that someone had gone to great lengths to ensure Glitch's name appeared everywhere. Yet, the scattered traces left by MM suggested a deliberate effort to shift the blame.
 
+
+## Answer
+
+### Looks like the song.mp3 file is not what we expected! Run "exiftool song.mp3" in your terminal to find out the author of the song. Who is the author? 
+
+**Download and Examine the Files**
+
+Paste the YouTube link into the converter tool, then download the generated ZIP file.
+
+![](glitchconverter.png){: width="1220" height="650"}
+
+![](download.png){: width="1220" height="653"}
+
+**Inspecting song.mp3**
+
+![](exifsong.png){: width="1420" height="647"}
+
+<button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">Reveal Answer</button>
+<div style="display:none;">
+  **Tyler Ramsbey**
+</div>
+
+
+
+
+
+
+
+
