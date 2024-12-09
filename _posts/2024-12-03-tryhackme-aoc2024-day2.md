@@ -55,7 +55,7 @@ Correlation requires a lot of hypothesis creation and ensuring that the evidence
 Similar to every SOC, the analysts in the Wareville SOC also need to differentiate TPs from FPs. This becomes especially difficult for them near Christmas when the analysts face alert fatigue. High chances of misclassification of TPs into FPs and vice versa are present in such times. The analysts, therefore, appreciate any help they could get from us in this crucial time. To make matters worse, the office of the Mayor has sent the analysts an alert informing them of multiple encoded powershell commands run on their systems. Perhaps we can help with that.
 
 
-## Answer
+## Answers
 
 **Once you start the machine, login to elastic with username/pass : elastic**
 

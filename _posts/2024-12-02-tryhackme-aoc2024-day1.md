@@ -239,7 +239,7 @@ As McSkidy continued digging, a pattern emerged that didn't fit the persona she 
 Even though all signs on the website seemed to point to Glitch as the author, it became clear that someone had gone to great lengths to ensure Glitch's name appeared everywhere. Yet, the scattered traces left by MM suggested a deliberate effort to shift the blame.
 
 
-## Answer
+## Answers
 
 ### Question 1
 
