@@ -257,8 +257,9 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
 
 ![](exifsong.png){: width="1420" height="647"}
 
-<div onclick="this.querySelector('p').style.filter='none';" style="cursor:pointer; border:1px solid #ccc; padding:10px;">
-  <p style="filter: blur(5px);">Tyler Ramsbey</p>
+<div onclick="this.querySelector('p').style.filter='none';" style="cursor:pointer; position:relative; border:1px solid #ccc; padding:10px;">
+  <p id="answer" style="filter: blur(5px); transition: filter 0.3s ease;">Tyler Ramsbey</p>
+  <button onclick="navigator.clipboard.writeText(document.getElementById('answer').textContent)" style="position:absolute; top:10px; right:10px;">Copy</button>
 </div>
 
 
