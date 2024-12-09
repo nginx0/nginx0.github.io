@@ -257,8 +257,9 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
 
 <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">Reveal Answer</button>
 <div style="display:none;">
-  **Tyler Ramsbey**
+  <p><strong>Tyler Ramsbey</strong></p>
 </div>
+
 
 
 
