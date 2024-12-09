@@ -32,7 +32,7 @@ Mayor Malware knows that before his malware executes, it needs to check if it is
 
 To do so, he has settled on one technique, which checks if the directory **C:\Program Files** is present by querying the Registry path **HKLM\\Software\\Microsoft\\Windows\\CurrentVersion**. The value can be confirmed by visiting the Registry path within the Registry Editor, as shown below:
 
-![](wishcart.png){: width="773" height="351"}
+![](regedit.png){: width="773" height="351"}
 
 To open the **Windows Registry Editor**, navigate to the **Start Menu** on the bottom, select **Run**, enter **regedit**, and press enter.
 
