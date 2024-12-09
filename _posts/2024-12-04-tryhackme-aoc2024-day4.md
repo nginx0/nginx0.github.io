@@ -317,8 +317,8 @@ What was the flag found in the .txt file that is found in the same directory as 
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
   <div style="padding:10px; border:1px solid #ccc;">
-    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
-    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+    <span onclick="navigator.clipboard.writeText('THM{GlitchTestingForSpearphishing}')" style="cursor:pointer;">THM{GlitchTestingForSpearphishing}</span>
+    <i onclick="navigator.clipboard.writeText('THM{GlitchTestingForSpearphishing}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
 
@@ -329,8 +329,8 @@ What ATT&CK technique ID would be our point of interest?
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
   <div style="padding:10px; border:1px solid #ccc;">
-    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
-    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+    <span onclick="navigator.clipboard.writeText('T1059')" style="cursor:pointer;">T1059</span>
+    <i onclick="navigator.clipboard.writeText('T1059')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
 
@@ -341,8 +341,8 @@ What ATT&CK technique ID would be our point of interest?
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
   <div style="padding:10px; border:1px solid #ccc;">
-    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
-    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+    <span onclick="navigator.clipboard.writeText('T1059.003')" style="cursor:pointer;">T1059.003</span>
+    <i onclick="navigator.clipboard.writeText('T1059.003')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
 
@@ -353,8 +353,8 @@ What is the name of the Atomic Test to be simulated?
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
   <div style="padding:10px; border:1px solid #ccc;">
-    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
-    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+    <span onclick="navigator.clipboard.writeText('Simulate BlackByte Ransomware Print Bombing')" style="cursor:pointer;">Simulate BlackByte Ransomware Print Bombing</span>
+    <i onclick="navigator.clipboard.writeText('Simulate BlackByte Ransomware Print Bombing')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
 
@@ -365,8 +365,8 @@ What is the name of the file used in the test?
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
   <div style="padding:10px; border:1px solid #ccc;">
-    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
-    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+    <span onclick="navigator.clipboard.writeText('Wareville_Ransomware.txt')" style="cursor:pointer;">Wareville_Ransomware.txt</span>
+    <i onclick="navigator.clipboard.writeText('Wareville_Ransomware.txt')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
 
@@ -377,8 +377,8 @@ What is the flag found from this Atomic Test?
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
   <div style="padding:10px; border:1px solid #ccc;">
-    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
-    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+    <span onclick="navigator.clipboard.writeText('THM{R2xpdGNoIGlzIG5vdCB0aGUgZW5lbXk=}')" style="cursor:pointer;">THM{R2xpdGNoIGlzIG5vdCB0aGUgZW5lbXk=}</span>
+    <i onclick="navigator.clipboard.writeText('THM{R2xpdGNoIGlzIG5vdCB0aGUgZW5lbXk=}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
 
