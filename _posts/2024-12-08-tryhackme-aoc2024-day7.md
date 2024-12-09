@@ -265,6 +265,164 @@ Let's do a quick breakdown of the command we executed:
 | `.Records[]`                                                     | Instructs `jq` to parse the events in the `Records` container element. The `Records` field is the top element in the JSON-formatted CloudTrail log. |
 | `| select(.eventSource == "s3.amazonaws.com" and .requestParameters.bucketName=="wareville-care4wares")` | Uses the previous command's output, and filters it on the `eventSource` and `requestParameters.bucketName` keys. The value `s3.amazonaws.com` is used to filter events related to the Amazon AWS S3 service, and the value `wareville-care4wares` is used to filter events related to the target S3 bucket. |
 
+As you can see in the command output, we were able to trim down the results since all of the entries are from S3. However, it is still a bit overwhelming since all the fields are included in the output. Now, let's refine the output by selecting the significant fields. Execute the following command below:
 
+```console
+ubuntu@tryhackme:~/wareville_logs$ jq -r '.Records[] | select(.eventSource == "s3.amazonaws.com" and .requestParameters.bucketName=="wareville-care4wares") | [.eventTime, .eventName, .userIdentity.userName // "N/A",.requestParameters.bucketName // "N/A", .requestParameters.key // "N/A", .sourceIPAddress // "N/A"]' cloudtrail_log.json
+```
 
+As you can see, we have appended another pipe (|) after our previous filter. Let's discuss it quickly:
 
+| **Command**                                                                                                   | **Description**                                                                                                                                                                                                                   |
+|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <p align="center">[ .eventTime, .eventName, .userIdentity.userName // "N/A", .requestParameters.bucketName // "N/A", .requestParameters.key // "N/A", .sourceIPAddress // "N/A" ]</p> | The piped filter uses the previous command's output and formats it to only include the defined keys, such as `.eventTime`, `.eventName`, and `.userIdentity.userName`. The defined keys are enclosed with square brackets ([]) to process and create an array with the specified fields from each record. Note that the string `// "N/A"` is included purely for formatting reasons. This means that if the defined key does not have a value, it will display N/A instead. |
+
+As you can see in the results, we could focus on the notable items, but our initial goal is to render the output in a table to make it easy to digest. Let's upgrade our command with additional parameters.
+
+```console
+ubuntu@tryhackme:~/wareville_logs$ jq -r '["Event_Time", "Event_Name", "User_Name", "Bucket_Name", "Key", "Source_IP"],(.Records[] | select(.eventSource == "s3.amazonaws.com" and .requestParameters.bucketName=="wareville-care4wares") | [.eventTime, .eventName, .userIdentity.userName // "N/A",.requestParameters.bucketName // "N/A", .requestParameters.key // "N/A", .sourceIPAddress // "N/A"]) | @tsv' cloudtrail_log.json | column -t
+```
+
+You may observe that we have added the following items to our command:
+
+| **Command**                                                                                                         | **Description**                                                                                                                                                                                                                                                                           |
+|---------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `jq -r '["Event_Time", "Event_Name", "User_Name", "Bucket_Name", "Key", "Source_IP"], SELECT_FILTER | SPECIFIC FIELDS` | The new command prepends a column header row and is defined using square brackets since it is an array that corresponds to the selected fields. Note that a comma is used before the select filter to combine with those of the select filter results we previously used. |
+| `| @tsv`                                                                                                            | Sets each array element, the output processed after the filters, as a line of tab-separated values.                                                                                                                                                                                       |
+| `| column -t -s $'\t'`                                                                                                | It takes the output of the jq command, now resulting in tab-separated values, and beautifies its result by processing all tabs and aligning the columns.                                                                                                                                   |
+
+**Note**: Our crafted command lets us summarise S3 activities from a CloudTrail log.
+
+Now that we have crafted a JQ query that provides a well-refined output, let’s look at the results and observe the events. Based on the columns, we can answer the following questions to build our assumptions:
+
+- How many log entries are related to the **wareville-care4wares bucket**?
+- Which user initiated most of these log entries?
+- Which actions did the user perform based on the **eventName** field?
+- Were there any specific files edited?
+- What is the timestamp of the log entries?
+- What is the source IP related to these log entries?
+
+Looking at the results, 5 logged events seem related to the **wareville-care4wares bucket**, and almost all are related to the user glitch. Aside from listing the objects inside the bucket (ListOBject event), the most notable detail is that the user glitch uploaded the file **wareville-bank-account-qr.png** on November 28th. This seems to coincide with the information we received about no donations being made 2 days after the link was sent out.
+
+McSkidy is sure there was no user glitch in the system before. There is no one in the city hall with that name, either. The only person that McSkidy knows with that name is the hacker who keeps to himself. McSkidy suggests that we look into this anomalous user.
+
+## McSkidy Fooled Us?
+
+McSkidy wants to know what this anomalous user account has been used for, when it was created, and who created it. Enter the command below to see all the events related to the anomalous user. We can focus our analysis on the following questions:
+
+- What event types are included in these log entries?
+- What is the timestamp of these log entries?
+- Which IPs are included in these log entries?
+- What tool/OS was used in these log entries?
+
+```console
+ubuntu@tryhackme:~/wareville_logs$ jq -r '["Event_Time", "Event_Source", "Event_Name", "User_Name", "Source_IP"],(.Records[] | select(.userIdentity.userName == "glitch") | [.eventTime, .eventSource, .eventName, .userIdentity.userName // "N/A", .sourceIPAddress // "N/A"]) | @tsv' cloudtrail_log.json | column -t -s $'\t'
+```
+
+The results show that the user glitch mostly targeted the S3 bucket. The notable event is the **ConsoleLogin** entry, which tells us that the account was used to access the AWS Management Console using a browser.
+
+We still need information about which tool and OS were used in the requests. Let's view the **userAgent** value related to these events using the following command.
+
+```console
+ubuntu@tryhackme:~/wareville_logs$ jq -r '["Event_Time", "Event_type", "Event_Name", "User_Name", "Source_IP", "User_Agent"],(.Records[] | select(.userIdentity.userName == "glitch") | [.eventTime,.eventType, .eventName, .userIdentity.userName //"N/A",.sourceIPAddress //"N/A", .userAgent //"N/A"]) | @tsv' cloudtrail_log.json | column -t -s $'\t'
+```
+
+There are two **User-Agent** values included in all log entries related to the **glitch** user: 
+
+| **Command**                                                                                                         | **Description**                                                                                                                                                                                                                                                                           |
+|---------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <p align="center">S3Console/0.4, aws-internal/3 aws-sdk-java/1.12.750 Linux/5.10.226-192.879.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.412-b09 java/1.8.0_412 vendor/Oracle_Corporation cfg/retry-mode/standard</p> | This is the userAgent string for the internal console used in AWS. It doesn’t provide much information.                                                                                                                        |
+| <p align="center">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36</p> | This userAgent string provides us with 2 pieces of interesting information. The anomalous account uses a Google Chrome browser within a Mac OS system.                                                                         |
+
+An experienced attacker can forge these values, but we should not dismiss this information. It can be valuable when comparing different log entries for the same user. We will park the current information for now, let's gather more information to connect the dots.
+
+The next interesting event to look for is who created this anomalous user account. We will filter for all IAM-related events, and this can be done by using the select filter **.eventSource == "iam.amazonaws.com"**. Let's execute the command below, and try to answer the following questions:
+
+- What Event Names are included in the log entries?
+- What user executed these events?
+- What is this user’s IP?
+
+```console
+ubuntu@tryhackme:~/wareville_logs$ jq -r '["Event_Time", "Event_Source", "Event_Name", "User_Name", "Source_IP"], (.Records[] | select(.eventSource == "iam.amazonaws.com") | [.eventTime, .eventSource, .eventName, .userIdentity.userName // "N/A", .sourceIPAddress // "N/A"]) | @tsv' cloudtrail_log.json | column -t -s $'\t'
+```
+
+Based on the results, there are many ListPolicies events. By ignoring these events, it seems that the most significant IAM activity is about the user **mcskidy** invoking the **CreateUser** action and consequently invoking the **AttachUserPolicy** action. The source IP where the requests were made is **53.94.201.69**. Remember that it is the same IP the anomalous user glitch used.
+
+Let’s have a more detailed look at the event related to the **CreateUser** action by executing the command below:
+
+```console
+ubuntu@tryhackme:~/wareville_logs$ jq '.Records[] |select(.eventSource=="iam.amazonaws.com" and .eventName== "CreateUser")' cloudtrail_log.json
+```
+
+Based on the request parameters of the output, it can be seen that it was the user, **mcskidy**, who created the anomalous account.
+
+Now, we need to know what permissions the anomalous user has. It could be devastating if it has access to our whole environment. We need to filter for the **AttachUserPolicy** event to uncover the permissions set for the newly created user. This event applies access policies to users, defining the extent of access to the account. Let's filter for the specific event by executing the command below.
+
+```console
+ubuntu@tryhackme:~/wareville_logs$ jq '.Records[] | select(.eventSource=="iam.amazonaws.com" and .eventName== "AttachUserPolicy")' cloudtrail_log.json
+```
+
+McSkidy is baffled by these results. She knows that she did not create the anomalous user and did not assign the privileged access. She also doesn’t recognise the IP address involved in the events and does not use a Mac OS; she only uses a Windows machine. All this information is different to the typical IP address and machine used by McSkidy, so she wants to prove her innocence and asks to continue the investigation.
+
+## Logs Don’t Lie
+
+McSkidy suggests looking closely at the IP address and operating system related to all these anomalous events. Let's use the following command below to continue with the investigation:
+
+```console
+ubuntu@tryhackme:~/wareville_logs$ jq -r '["Event_Time", "Event_Source", "Event_Name", "User_Name", "Source_IP"], (.Records[] | select(.sourceIPAddress=="53.94.201.69") | [.eventTime, .eventSource, .eventName, .userIdentity.userName // "N/A", .sourceIPAddress // "N/A"]) | @tsv' cloudtrail_log.json | column -t -s $'\t'
+```
+
+Based on the command output, three user accounts (**mcskidy, glitch, and mayor_malware**) were accessed from the same IP address. The next step is to check each user and see if they always work from that IP.
+
+Let’s focus on each user and see if they always work from that IP. Enter the command below, and replace the **PLACEHOLDER** with the username. 
+
+```console
+ubuntu@tryhackme:~/wareville_logs$ jq -r '["Event_Time","Event_Source","Event_Name", "User_Name","User_Agent","Source_IP"],(.Records[] | select(.userIdentity.userName=="PLACEHOLDER") | [.eventTime, .eventSource, .eventName, .userIdentity.userName // "N/A",.userAgent // "N/A",.sourceIPAddress // "N/A"]) | @tsv' cloudtrail_log.json | column -t -s $'\t'
+```
+
+While gathering the information for each user, we can focus our investigation on the following questions:
+
+- Which IP does each user typically use to log into AWS?
+- Which OS and browser does each user usually use?
+- Are there any similarities or explicit differences between the IP addresses and operating systems used?
+
+Based on the results, we have proven that McSkidy used a different IP address before the unusual authentication was discovered. Moreover, all evidence seems to point towards another user after correlating the IP address and User-Agent used by each user. Who do you think it could be? McSkidy has processed all the investigation results and summarized them below:
+
+- The incident starts with an anomalous login with the user account **mcskidy** from IP **53.94.201.69**.
+- Shortly after the login, an anomalous user account **glitch** was created.
+- Then, the **glitch** user account was assigned administrator permissions.
+- The **glitch** user account then accessed the S3 bucket named **wareville-care4wares** and replaced the **wareville-bank-account-qr.png** file with a new one. The IP address and User-Agent used to log into the **glitch**, **mcskidy**, and **mayor_malware** accounts were the same.
+the User-Agent string and Source IP of recurrent logins by the user account **mcskidy** are different.
+
+## Definite Evidence
+
+McSkidy suggests gathering stronger proof that that person was behind this incident. Luckily, Wareville Bank cooperated with us and provided their database logs from their Amazon Relational Database Service (RDS). They also mentioned that these are captured through their CloudWatch, which differs from the CloudTrail logs as they are not stored in JSON format. For now, let’s look at the bank transactions stored in the **~/wareville_logs/rds.log** file.
+
+Since the log entries are different from the logs we previously investigated, McSkidy provided some guidance on how to analyse them. According to her, we can use the following command to show all the bank transactions.
+
+**Note**: Grep is a Unix command-line utility used for searching strings within a file or an input stream.
+
+```console
+ubuntu@tryhackme:~/wareville_logs$ grep INSERT rds.log
+```
+
+From the command above, McSkidy explained that all INSERT queries from the RDS log pertain to who received the donations made by the townspeople. Given this, we can see in the output the two recipients of all donations made within November 28th, 2024.
+
+```console
+---REDACTED FOR BREVITY---
+2024-11-28T15:22:17.728Z 2024-11-28T15:22:17.728648Z    263 Query INSERT INTO wareville_bank_transactions (account_number, account_owner, amount) VALUES ('8839 2219 1329 6917', 'Care4wares Fund', 342.80)
+2024-11-28T15:22:18.569Z 2024-11-28T15:22:18.569279Z    263 Query INSERT INTO wareville_bank_transactions (account_number, account_owner, amount) VALUES ('8839 2219 1329 6917', 'Care4wares Fund', 929.57)
+2024-11-28T15:23:02.605Z 2024-11-28T15:23:02.605700Z    263 Query INSERT INTO wareville_bank_transactions (account_number, account_owner, amount) VALUES ('----- REDACTED ----', 'Mayor Malware', 193.45)
+2024-11-28T15:23:02.792Z 2024-11-28T15:23:02.792161Z    263 Query INSERT INTO wareville_bank_transactions (account_number, account_owner, amount) VALUES ('----- REDACTED ----', 'Mayor Malware', 998.13)
+---REDACTED FOR BREVITY---
+```
+
+As shown above, the Care4wares Fund received all the donations until it changed into a different account at a specific time. The logs also reveal who received the donations afterwards, given the account owner's name. With all these findings, McSkidy confirmed the assumptions made during the investigation of the S3 bucket since the sudden change in bank details was reflected in the database logs. The timeline of events collected by McSkidy explains the connection of actions conducted by the culprit.
+
+| **Timestamp**              | **Source**                          | **Event**                                              |
+|----------------------------|-------------------------------------|--------------------------------------------------------|
+| <p align="center">2024-11-28 15:22:18</p> | <p align="center">CloudWatch RDS logs (rds.log)</p> | <p align="center">Last donation received by the Care4wares Fund.</p> |
+| <p align="center">2024-11-28 15:22:39</p> | <p align="center">CloudTrail logs (cloudtrail_log.json)</p> | <p align="center">Bank details update on S3 bucket.</p> |
+| <p align="center">2024-11-28 15:23:02</p> | <p align="center">CloudWatch RDS logs (rds.log)</p> | <p align="center">First donation received by Mayor Malware.</p> |
+
+s
