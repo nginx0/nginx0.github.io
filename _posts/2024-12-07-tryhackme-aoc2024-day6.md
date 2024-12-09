@@ -269,5 +269,3 @@ What is the flag found in the malstrings.txt document after running floss.exe, a
     <i onclick="navigator.clipboard.writeText('THM{HiddenClue}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
-
-

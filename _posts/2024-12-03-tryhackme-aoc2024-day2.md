@@ -134,7 +134,3 @@ What is the decoded command executed by Glitch to fix the systems of Wareville?
     <i onclick="navigator.clipboard.writeText('Install-WindowsUpdate -AcceptAll -AutoReboot')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
-
-
-
-

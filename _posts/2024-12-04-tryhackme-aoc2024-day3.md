@@ -352,21 +352,3 @@ Remember, to access the Frosty Pines Resorts website (http://frostypines.thm), y
     <i onclick="navigator.clipboard.writeText('THM{Gl1tch_Was_H3r3}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

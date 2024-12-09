@@ -293,25 +293,3 @@ What is the flag seen on the possible proof of sabotage?
     <i onclick="navigator.clipboard.writeText('THM{m4y0r_m4lw4r3_b4ckd00rs}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

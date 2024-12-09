@@ -381,5 +381,3 @@ What is the flag found from this Atomic Test?
     <i onclick="navigator.clipboard.writeText('THM{R2xpdGNoIGlzIG5vdCB0aGUgZW5lbXk=}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
-
-
