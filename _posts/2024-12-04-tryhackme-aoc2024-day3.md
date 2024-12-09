@@ -57,7 +57,7 @@ In this section of the lesson, we will take a look at what tools and knowledge i
 
 For the first part of Operation Blue, we will demonstrate how to use ELK to analyse the logs of a demonstration web app - WareVille Rails. Feel free to following along for practice. 
 
-## Log Analysis & Introducing ELK
+### Log Analysis & Introducing ELK
 
 Log analysis is crucial to blue-teaming work, as you have likely discovered through this year's Advent of Cyber.
 
@@ -67,7 +67,7 @@ Explaining how ELK collates and processes these logs is out of the scope of toda
 
 The first part of today's task is to investigate the attack on Frosty Pines Resort's Hotel Management System to see what it looks like to a blue teamer. You will then test your web app skills by recreating the attack.
 
-## Using ELK
+### Using ELK
 
 Upon loading the URL http://MACHINE_IP:5601/ within your AttackBox’s browser, you will be greeted with the ELK Home page.
 
@@ -102,7 +102,7 @@ Now that we can see some entries, let's go over the basics of the Kibana Discove
 - **Documents (Logs)**: These entries are the specific entries in the log file
 - **Time Filter**: We can use this to narrow down a specific time frame (absolute). Alternatively, we can search for logs based on relativity. I.e. "Last 7 days".
 
-## Kibana Query Language (KQL)
+### Kibana Query Language (KQL)
 
 KQL, or Kibana Query Language, is an easy-to-use language that can be used to search documents for values. For example, querying if a value within a field exists or matches a value. If you are familiar with Splunk, you may be thinking of SPL (Search Processing Language).
 
@@ -120,7 +120,7 @@ For example, the query to search all documents for an IP address may look like *
 | :                | This is used to search the (specified) field of a document for a value, such as an IP address. | ip.address: 10.10.10.10 |
 
 
-## Investigating a Web Attack With ELK
+### Investigating a Web Attack With ELK
 
 Scenario: Thanks to our extensive intrusion detection capabilities, our systems alerted the SOC team to a web shell being uploaded to the WareVille Rails booking platform on Oct 1, 2024. Our task is to review the web server logs to determine how the attacker achieved this.
 
