@@ -204,7 +204,7 @@ Continue by navigating to **Filter Current Log** on the right-hand side of the s
 
 You should see a window like the one below:
 
-![](filter_currrent_log.png){: width="541" height="547"}
+![](filter_current_log.png){: width="541" height="547"}
 
 Navigate to XML and tick the checkbox **Edit query manually**. Click **Yes** to confirm. Finally, copy the following filter into the input box:
 
@@ -220,7 +220,7 @@ Navigate to XML and tick the checkbox **Edit query manually**. Click **Yes** to 
 
 Replace the **EventRecordID** value with the one you recorded before. Apply the filter by clicking **OK**. Now you get the event related to the malware. Click on the event and then on the **Details** tab. You should get the following output:
 
-![](event_sysmon){: width="1763" height="780"}
+![](event_sysmon.png){: width="1763" height="780"}
 
 Let's take a look at the EventData that is valuable to us:
 
@@ -234,7 +234,9 @@ Let's take a look at the EventData that is valuable to us:
 
 <div align="center">
 *His malware, it seemed, wasn't quite ready for town.*  
+<br>  
 *"There are watchers and scanners and rules by the ton!"*  
+<br>  
 *"If I'm not careful, they'll catch all my fun!"*
 </div>
 
