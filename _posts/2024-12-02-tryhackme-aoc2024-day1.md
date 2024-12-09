@@ -260,24 +260,11 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
 
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0;">Answer</summary>
-  <div style="padding:10px; border:1px solid #ccc; max-height:0; overflow:hidden; opacity:0; transition:all 0.5s ease;">
+  <div style="padding:10px; border:1px solid #ccc;">
     Tyler Ramsbey
-    <i onclick="navigator.clipboard.writeText('Tyler Ramsbey')" style="float:right; cursor:pointer;">&#x1F4CB;</i>
+    <i onclick="navigator.clipboard.writeText('Tyler Ramsbey')" style="float:right; cursor:pointer; font-size:16px;">&#128203;</i>
   </div>
 </details>
-
-<script>
-  document.querySelector('details').addEventListener('toggle', function() {
-    const div = this.querySelector('div');
-    if (this.open) {
-      div.style.maxHeight = div.scrollHeight + 'px';
-      div.style.opacity = 1;
-    } else {
-      div.style.maxHeight = 0;
-      div.style.opacity = 0;
-    }
-  });
-</script>
 
 
 
