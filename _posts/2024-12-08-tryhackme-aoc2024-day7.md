@@ -427,3 +427,112 @@ As shown above, the Care4wares Fund received all the donations until it changed 
 | 2024-11-28 15:22:39          | CloudTrail logs (cloudtrail_log.json)| Bank details update on S3 bucket.                      |
 | 2024-11-28 15:23:02          | CloudWatch RDS logs (rds.log)       | First donation received by Mayor Malware.              |
 
+## Answers
+
+### Question 1
+
+What is the other activity made by the user glitch aside from the ListObject action?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('PutObject')" style="cursor:pointer;">PutObject</span>
+    <i onclick="navigator.clipboard.writeText('PutObject')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 2
+
+What is the source IP related to the S3 bucket activities of the user glitch?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('53.94.201.69')" style="cursor:pointer;">53.94.201.69</span>
+    <i onclick="navigator.clipboard.writeText('53.94.201.69}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 3
+
+Based on the eventSource field, what AWS service generates the ConsoleLogin event?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('signin.amazonaws.com')" style="cursor:pointer;">signin.amazonaws.com</span>
+    <i onclick="navigator.clipboard.writeText('signin.amazonaws.com')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 4
+
+When did the anomalous user trigger the ConsoleLogin event?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('2024-11-28T15:21:54Z')" style="cursor:pointer;">2024-11-28T15:21:54Z</span>
+    <i onclick="navigator.clipboard.writeText('2024-11-28T15:21:54Z')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 5
+
+What was the name of the user that was created by the mcskidy user?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('glitch')" style="cursor:pointer;">glitch</span>
+    <i onclick="navigator.clipboard.writeText('glitch')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 6
+
+What type of access was assigned to the anomalous user?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('AdministratorAccess')" style="cursor:pointer;">AdministratorAccess</span>
+    <i onclick="navigator.clipboard.writeText('AdministratorAccess')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 7
+
+Which IP does Mayor Malware typically use to log into AWS?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('53.94.201.69')" style="cursor:pointer;">53.94.201.69</span>
+    <i onclick="navigator.clipboard.writeText('53.94.201.69')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 8
+
+What is McSkidy's actual IP address?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('31.210.15.79')" style="cursor:pointer;">31.210.15.79</span>
+    <i onclick="navigator.clipboard.writeText('31.210.15.79')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 9
+
+What is the bank account number owned by Mayor Malware?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('2394 6912 7723 1294')" style="cursor:pointer;">2394 6912 7723 1294</span>
+    <i onclick="navigator.clipboard.writeText('2394 6912 7723 1294')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
