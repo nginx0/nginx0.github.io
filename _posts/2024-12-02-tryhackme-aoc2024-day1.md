@@ -294,6 +294,14 @@ Who is M.M? Maybe his Github profile page would provide clues?
 
 ![](mm.png){: width="1174" height="175"}
 
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('Mayor Malware')" style="cursor:pointer;">Mayor Malware</span>
+    <i onclick="navigator.clipboard.writeText('Mayor Malware')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
 ### Question 4
 
 What is the number of commits on the GitHub repo where the issue was raised?
