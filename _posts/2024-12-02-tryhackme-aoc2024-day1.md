@@ -266,6 +266,20 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
   </div>
 </details>
 
+<script>
+  document.querySelector('details').addEventListener('toggle', function() {
+    const div = this.querySelector('div');
+    if (this.open) {
+      div.style.maxHeight = div.scrollHeight + 'px';
+      div.style.opacity = 1;
+    } else {
+      div.style.maxHeight = 0;
+      div.style.opacity = 0;
+    }
+  });
+</script>
+
+
 
 
 
