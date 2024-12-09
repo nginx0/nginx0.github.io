@@ -257,14 +257,27 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
 
 ![](exifsong.png){: width="1420" height="647"}
 
-Answer:
 
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0;">Answer</summary>
-  <div style="padding:10px; border:1px solid #ccc;">
+  <div style="padding:10px; border:1px solid #ccc; overflow:hidden; max-height:0; opacity:0; transition:max-height 0.5s ease-out, opacity 0.5s ease-out;">
     Tyler Ramsbey
   </div>
 </details>
+
+<script>
+  document.querySelector('details').addEventListener('toggle', function() {
+    const div = this.querySelector('div');
+    if (this.open) {
+      div.style.maxHeight = div.scrollHeight + 'px';
+      div.style.opacity = 1;
+    } else {
+      div.style.maxHeight = 0;
+      div.style.opacity = 0;
+    }
+  });
+</script>
+
 
 
 
