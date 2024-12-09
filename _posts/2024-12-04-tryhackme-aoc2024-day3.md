@@ -14,34 +14,32 @@ Today's AoC challenge follows a rather unfortunate series of events for the Glit
 _<https://tryhackme.com/r/room/adventofcyber2024>_
 
 <div style="text-align: center; font-style: italic;">
-  Late one Christmas evening the Glitch had a feeling,
-  Something forgotten as he stared at the ceiling.
-  He got up out of bed and decided to check,
-  A note on his wall: ”Two days! InsnowSec”.
-
+  Late one Christmas evening the Glitch had a feeling,<br>
+  Something forgotten as he stared at the ceiling.<br>
+  He got up out of bed and decided to check,<br>
+  A note on his wall: ”Two days! InsnowSec”.<br><br>
 </div>
 
 <div style="text-align: center; font-style: italic;">
-  With a click and a type he got his hotel and tickets,
-  And sank off to sleep to the sound of some crickets.
-  Luggage in hand, he had arrived at Frosty Pines,
-  “To get to the conference, just follow the signs”.
+  With a click and a type he got his hotel and tickets,<br>
+  And sank off to sleep to the sound of some crickets.<br>
+  Luggage in hand, he had arrived at Frosty Pines,<br>
+  “To get to the conference, just follow the signs”.<br><br>
 </div>
 
 <div style="text-align: center; font-style: italic;">
-  Just as he was ready the Glitch got a fright,
-  An RCE vulnerability on their website ?!?
-  He exploited it quick and made a report,
-  But before he could send arrived his transport.
+  Just as he was ready the Glitch got a fright,<br>
+  An RCE vulnerability on their website ?!?<br>
+  He exploited it quick and made a report,<br>
+  But before he could send arrived his transport.<br><br>
 </div>
 
 <div style="text-align: center; font-style: italic;">
-  In the Frosty Pines SOC they saw an alert,
-  This looked quite bad, they called an expert.
-  The request came from a room, but they couldn’t tell which,
-  The logs saved the day, it was the room of…the Glitch.
+  In the Frosty Pines SOC they saw an alert,<br>
+  This looked quite bad, they called an expert.<br>
+  The request came from a room, but they couldn’t tell which,<br>
+  The logs saved the day, it was the room of…the Glitch.<br><br>
 </div>
-
 
 
 ![](cabin.png){: width="1100" height="706"}
