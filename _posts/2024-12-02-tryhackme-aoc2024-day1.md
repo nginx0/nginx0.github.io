@@ -260,11 +260,12 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
 
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
-  <div style="padding:10px; border:1px solid #ccc; user-select: none;">
-    Tyler Ramsbey
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('Tyler Ramsbey')" style="cursor:pointer;">Tyler Ramsbey</span>
     <i onclick="navigator.clipboard.writeText('Tyler Ramsbey')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
+
 
 
 
