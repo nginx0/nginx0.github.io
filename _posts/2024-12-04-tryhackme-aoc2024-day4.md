@@ -173,3 +173,213 @@ Write-Host "You will need to install Microsoft Word manually to meet this requir
 [!!!!!!!!END TEST!!!!!!!]
 ```
 
+The output above is clearly split up into multiple parts, each matching a test. Let's examine what type of information is provided in a test. We will use the test we want to run as an example.
+
+| Key                   | Value                                                                                               | Description                                                                                                                                       |
+|-----------------------|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Technique**          | Phishing: Spearphishing Attachment T1566.001                                                         | The full name of the MITRE ATT&CK technique that will be tested.                                                                                  |
+| **Atomic Test Name**   | Download Macro-Enabled Phishing Attachment                                                           | A descriptive name of the type of test that will be executed.                                                                                     |
+| **Atomic Test Number** | 1                                                                                                   | A number is assigned to the test; we can use this in the command to specify which test we want to run.                                            |
+| **Atomic Test GUID**   | 114ccff9-ae6d-4547-9ead-4cd69f687306                                                                | A unique ID is assigned to this test; we can use this in the command to specify which test we want to run.                                         |
+| **Description**        | This atomic test downloads a macro-enabled document from the Atomic Red Team GitHub repository, simulating an end-user clicking a phishing link to download the file. The file "PhishingAttachment.xlsm" is downloaded to the %temp% directory. | Provides a detailed explanation of what the test will do.                                                                                         |
+| **Attack commands**    | **Executor:** powershell<br>**ElevationRequired:** False<br>**Command:** `$url = ‘http://localhost/PhishingAttachment.xlsm’ Invoke-WebRequest -Uri $url -OutFile $env:TEMP.xlsm` | This provides an overview of all the commands run during the test, including the executor of those commands and the required privileges. It also helps us determine where to look for artefacts in Windows Event Viewer. |
+| **Cleanup commands**   | **Command:** `Remove-Item $env:TEMP.xlsm -ErrorAction Ignore`                                          | An overview of the commands executed to revert the machine back to its original state.                                                           |
+| **Dependencies**       | There are no dependencies required.                                                                  | An overview of all required resources that must be present on the testing machine in order to execute the test.                                   |
+
+**Phishing: Spearphishing Attachment T1566.001 Emulated**
+
+Let's continue and run the first test of T1566.001. Before running the emulation, we should ensure that all required resources are in place to conduct it successfully. To verify this, we can add the flag **-Checkprereq** to our command. The command should look something like this: **Invoke-AtomicTest T1566.001 -TestNumbers 1 -CheckPrereq**.
+
+This command will use the data included in the "dependencies" part of the test details to verify if all required resources are present. Looking at the test 1 dependencies of the T1566.001 Atomic, no additional resources are required. Run the same command for test 2, and it will state that Microsoft Word needs to be installed, as shown below:
+
+```powershell
+PS C:\Users\Administrator> Invoke-AtomicTest T1566.001 -TestNumbers 2 -CheckPrereq
+PathToAtomicsFolder = C:\Tools\AtomicRedTeam\atomics
+          
+CheckPrereq's for: T1566.001-2 Word spawned a command shell and used an IP address in the command line
+Prerequisites not met: T1566.001-2 Word spawned a command shell and used an IP address in the command line
+[*] Microsoft Word must be installed
+          
+Try installing prereq's with the -GetPrereqs switch
+```
+Now that we have verified the dependencies, let us continue with the emulation. Execute the following command to start the emulation: **Invoke-AtomicTest T1566.001 -TestNumbers 1** and you should get the following output:
+
+```powershell
+PS C:\Users\Administrator> Invoke-AtomicTest T1566.001 -TestNumbers 1
+PathToAtomicsFolder = C:\Tools\AtomicRedTeam\atomics
+          
+Executing test: T1566.001-1 Download Macro-Enabled Phishing Attachment
+Done executing test: T1566.001-1 Download Macro-Enabled Phishing Attachment
+```
+Based on the output, we can determine that the test was successfully executed. We can now analyse the logs in theWindows Event Viewer to find Indicators of Attack and Compromise.
+
+## Detecting the Atomic
+Now that we have executed the T1566.001 Atomic, we can look for log entries that point us to this emulated attack. For this purpose, we will use the Windows Event Logs. This machine comes with Sysmon installed. System Monitor (Sysmon) provides us with detailed information about process creation, network connections, and changes to file creation time.
+
+To make it easier for us to pick up the events created for this emulation, we will first start with cleaning up files from the previous test by running the command I**Invoke-AtomicTest T1566.001 -TestNumbers 1 -cleanup**.
+
+```powershell
+PS C:\Users\Administrator> Invoke-AtomicTest T1566.001 -TestNumbers 1 -cleanup
+```
+
+Now, we will clear the Sysmon event log:
+
+- Open up Event Viewer by clicking the icon in the taskbar, or searching for it in the Start Menu.
+- Navigate to **Applications and Services => Microsoft => Windows => Sysmon => Operational** on the left-hand side of the screen.
+- Right-click **Operational** on the left-hand side of the screen and click **Clear Log**. Click **Clear** when the popup shows.
+Now that we have cleaned up the files and the sysmon logs, let us run the emulation again by issuing the command **Invoke-AtomicTest T1566.001 -TestNumbers 1**.
+
+```powershell
+PS C:\Users\Administrator> Invoke-AtomicTest T1566.001 -TestNumbers 1
+PathToAtomicsFolder = C:\Tools\AtomicRedTeam\atomics
+          
+Executing test: T1566.001-1 Download Macro-Enabled Phishing Attachment
+Done executing test: T1566.001-1 Download Macro-Enabled Phishing Attachment
+```
+
+Next, go to the Event Viewer and right-click on the **Operational** log on the left-hand side of the screen and then click on **Refresh**. There should be new events related to the emulated attack. Now sort the table on the Date and Time column to order the events chronologically (oldest first). The first two events of the list are tests that Atomic executes for every emulation. We are interested in 2 events that detail the attack:
+
+First, a process was created for PowerShell to execute the following command: **"powershell.exe" & {$url = 'http://localhost/PhishingAttachment.xlsm' Invoke-WebRequest -Uri $url -OutFile $env:TEMP\PhishingAttachment.xlsm}**.
+Then, a file was created with the name PhishingAttachment.xlsm.
+Click on each event to see the details. When you select an event, you should see a detailed overview of all the data collected for that event. Click on the **Details** tab to show all the **EventData** in a readable format. Let us take a look at the details of these events below. The data highlighted is valuable for incident response and creating alerting rules.
+
+
+Navigate to the directory **C:\Users\Administrator\AppData\Local\Temp\,** and open the file **PhishingAttachment.txt**. The flag included is the answer to question 1. Make sure to answer the question now, as the cleanup command will delete this file.
+
+Let's clean up the artefacts from our spearphishing emulation. Enter the command **Invoke-AtomicTest T1566.001-1 -cleanup**.
+
+Now that we know which artefacts were created during this spearphishing emulation, we can use them to create custom alerting rules. In the next section, we will explore this topic further.
+
+## Alerting on the Atomic
+
+In the previous paragraph, we found multiple indicators of compromise through the Sysmon event log. We can use this information to create detection rules to include in our EDR, SIEM, IDS, etc. These tools offer functionalities that allow us to import custom detection rules. There are several detection rule formats, including Yara, Sigma, Snort, and more. Let's look at how we can implement the artefacts related to T1566.001 to create a custom Sigma rule.
+
+Two events contained possible indicators of compromise. Let's focus on the event that contained the **Invoke-WebRequest** command line:
+
+**"powershell.exe" & {$url = 'http://localhost/PhishingAttachment.xlsm' Invoke-WebRequest -Uri $url -OutFile $env:TEMP\PhishingAttachment.xlsm}"**
+
+We can use multiple parts of this artefact to include in our custom Sigma rule.
+
+- **Invoke-WebRequest**: It is not common for this command to run from a script behind the scenes.
+
+- **$url = 'http://localhost/PhishingAttachment.xlsm'**: Attackers often use a specific malicious domain to host their payloads. Including the malicious URL in the Sigma rule could help us detect that specific URL.
+
+- **PhishingAttachment.xlsm**: This is the malicious payload downloaded and saved on our system. We can include its name in the Sigma rule as well.
+
+Combining all these pieces of information in a Sigma rule would look something like this:
+
+```powershell
+title: Detect PowerShell Invoke-WebRequest and File Creation of PhishingAttachment.xlsm
+  id: 1
+  description: Detects the usage of Invoke-WebRequest to download PhishingAttachment.xlsm and the creation of the file PhishingAttachment.xlsm.
+ status: experimental
+  author: TryHackMe
+  logsource:
+    category: process_creation
+    product: windows
+    service: sysmon
+  detection:
+   selection_invoke_webrequest:
+      EventID: 1
+      CommandLine|contains:
+        - 'Invoke-WebRequest'
+        - 'http://localhost/PhishingAttachment.xlsm'
+    
+    selection_file_creation:
+      EventID: 11  # Sysmon Event ID for File Creation
+      TargetFilename|endswith: '\PhishingAttachment.xlsm'
+      
+    condition: selection_invoke_webrequest or selection_file_creation
+  falsepositives:
+    - Legitimate administration activity may use Invoke-WebRequest, and legitimate Excel files may be created with similar names.
+  level: high
+  tags:
+    - attack.t1071.001   # Web Service - Application Layer Protocol
+    - attack.t1059.001   # PowerShell
+    - attack.t1105       # Ingress Tool Transfer
+    - attack.t1566.001   # Spearphishing Attachment
+```
+
+The **detection** part is where the effective detection is happening. We can see clearly the artefacts that we discovered during the emulation test. We can then import this rule into the main tools we use for alerts, such as the EDR, SIEM, XDR, and many more.
+
+Now that Glitch has shown us his intentions, let's continue with his work and run an emulation for ransomware.
+
+## Challenge
+
+As Glitch continues to prepare for SOC-mas and fortifies Wareville's security, he decides to conduct an attack simulation that would mimic a ransomware attack across the environment. He is unsure of the correct detection metrics to implement for this test and asks you for help. Your task is to identify the correct atomic test to run that will take advantage of a command and scripting interpreter, conduct the test, and extract valuable artefacts that would be used to craft a detection rule.
+
+## Answers
+
+### Question 1
+
+What was the flag found in the .txt file that is found in the same directory as the PhishingAttachment.xslm artefact?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
+    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 2
+
+What ATT&CK technique ID would be our point of interest?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
+    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 3
+
+What ATT&CK technique ID would be our point of interest?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
+    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 4
+
+What is the name of the Atomic Test to be simulated?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
+    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 5
+
+What is the name of the file used in the test?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
+    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 6
+
+What is the flag found from this Atomic Test?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="cursor:pointer;">/media/images/rooms/shell.php</span>
+    <i onclick="navigator.clipboard.writeText('/media/images/rooms/shell.php')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+
