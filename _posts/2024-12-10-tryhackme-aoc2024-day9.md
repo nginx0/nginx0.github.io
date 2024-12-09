@@ -150,7 +150,7 @@ What does GRC stand for?
   </div>
 </details>
 
-### Question 1
+### Question 2
 
 What is the flag you receive after performing the risk assessment?
 
