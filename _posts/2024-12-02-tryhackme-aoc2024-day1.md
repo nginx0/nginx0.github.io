@@ -259,11 +259,12 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
 
 Answer:
 
-<div onclick="this.querySelector('.answer').style.display=this.querySelector('.answer').style.display==='none'?'block':'none'; this.querySelector('span').style.backgroundColor='#f0f0f0';" style="cursor:pointer; border:1px solid #ccc; padding:10px;">
-  <span>Click to reveal</span>
-  <p class="answer" style="display:none;">Tyler Ramsbey</p>
-</div>
-
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    Tyler Ramsbey
+  </div>
+</details>
 
 
 
