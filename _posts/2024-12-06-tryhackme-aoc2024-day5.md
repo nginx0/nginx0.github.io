@@ -143,6 +143,172 @@ Once Burp Suite has started, you will see its main interface with different tabs
 
 ![](burp3.png){: width="898" height="537"}
 
+Inside Burp Suite, click the **Settings** tab at the top right. You will see Burp's browser option available under the **Tools** section. Enable **Allow Burp's browser to run without a sandbox option** and click on the close icon on the top right corner of the **Settings** tab as shown below:
+
+![](burp4.png){: width="1297" height="477"}
+
+After allowing the browser to run without a sandbox, we would now be able to start the browser with pre-configured Burp Suite's proxy. Navigate to the **Open browser** option located at the **Proxy -> Intercept** section of Burp.  Open the browser by clicking the **Open browser** as shown below and browse the URL **http://MACHINE_IP**, so that all requests are intercepted: 
+
+![](burp5.png){: width="1357" height="312"}
+
+Once you browse the URL, all the requests are intercepted and can be seen under the **Proxy->HTTP** history tab.
+
+![](burp6.png){: width="1183" height="582"}
+
+**What is Happening in the Backend?**
+
+Now, when you visit the URL, **http://MACHINE_IP/product.php**, and click **Add to Wishlist**, an AJAX call is made to **wishlist.php** with the following XML as input. 
+
+```xml
+<wishlist>
+  <user_id>1</user_id>
+     <item>
+       <product_id>1</product_id>
+     </item>
+</wishlist>
+```
+
+In the above XML, **<product_id>** tag contains the ID of the product, which is 1 in this case. Now, let's review the **Add to Wishlist** request logged in Burp Suite's **HTTP History** option under the proxy tab. As discussed above, the request contains XML being forwarded as a **POST** request, as shown below:
+
+![](burp7.png){: width="1184" height="742"}
+
+This **wishlist.php** accepts the request and parses the request using the following code:
+
+```php
+<?php
+..
+...
+libxml_disable_entity_loader(false);
+$wishlist = simplexml_load_string($xml_data, "SimpleXMLElement", LIBXML_NOENT);
+
+...
+..
+echo "Item added to your wishlist successfully.";
+?>
+```
+
+**Preparing the Payload**
+
+When a user sends specially crafted XML data to the application, the line **libxml_disable_entity_loader(false)** allows the XML parser to load external entities. This means the XML input can include external file references or requests to remote servers. When the XML is processed by **simplexml_load_string** with the **LIBXML_NOENT** option, the web app resolves external entities, allowing attackers access to sensitive files or allowing them to make unintended requests from the server.
+
+What if we update the XML request to include references for external entities? We will use the following XML instead of the above XML:
+
+```xml
+<!--?xml version="1.0" ?-->
+<!DOCTYPE foo [<!ENTITY payload SYSTEM "/etc/hosts"> ]>
+<wishlist>
+  <user_id>1</user_id>
+     <item>
+       <product_id>&payload;</product_id>
+     </item>
+</wishlist>
+```
+
+When we send this updated XML payload, the first two lines introduce an external entity called payload. The line **<!ENTITY payload SYSTEM "/etc/hosts">** tells the XML parser to replace the **&payload**; reference with the contents of the file /etc/hosts on the server. When the XML is processed, instead of a normal **product_id**, the application will try to load and include the contents of the file specified in the entity **(/etc/hosts)**.
+
+**Exploitation**
+
+Now, let's perform the exploitation by repeating the request we captured earlier. The Burp Suite tool has a feature known as **Repeater** that allows you to send multiple HTTP requests. We will use this feature to duplicate our **HTTP POST** request and send it multiple times to exploit the vulnerability. Right-click on the **wishlist.php** POST request and click on **Send to Repeater**.
+
+![](burp8.png){: width="1562" height="721"}
+
+Now, switch to the **Repeater** tab, where you'll find the **POST** request that needs to be modified. We will update the XML payload with the new data as shown below and then send the modified request:
+
+![](burp9.png){: width="746" height="561"}
+
+Place the mouse cursor inside the request in the **Repeater** tab in Burp Suite and press **Ctrl+V**  or paste the payload in the above-highlighted area.
+
+![](burp10.png){: width="1246" height="580"}
+
+When we clicked **Send**, the server processed the malicious XML payload, which included the external entity reference to **/etc/hosts**. As a result, the **wishlist.php** responded with the contents of the **/etc/hosts** file, leading to an XXE vulnerability.
+
+## Time for Some Action
+
+Now that you've identified a vulnerability in the application, it's time to see it in action! McSkidy Software has tasked us with finding loopholes, and we've successfully uncovered one in the **wishlist.php** endpoint. But our work doesn't end there—let's take it a step further and assess the potential impact this vulnerability could have on the application.
+
+Earlier, we discovered a page accessible only by administrators, which seems like an exciting target. What if we could use the vulnerability we've found to access sensitive information, like the wishes placed by the townspeople?
+
+Now that our objective is clear, let's leverage the vulnerability we discovered to read the contents of each wishes page and demonstrate the full extent of this flaw to help McSkidy secure the platform. To get started, let's recall the page that is only accessible by admins - **/wishes/wish_1.txt**. Using this path, we just need to guess the potential absolute path of the file. Typically, web applications are hosted on **/var/www/html**. With that in mind, let's build our new payload to read the wishes while leveraging the vulnerability.
+
+**Note: Not all web applications use the path /var/www/html, but web servers typically use it.**
+
+```xml
+<!--?xml version="1.0" ?-->
+<!DOCTYPE foo [<!ENTITY payload SYSTEM "/var/www/html/wishes/wish_1.txt"> ]>
+<wishlist>
+  <user_id>1</user_id>
+  <item>
+         <product_id>&payload;</product_id>
+  </item>
+</wishlist>
+```
+
+![](payload1.png){: width="2158" height="738"}
+
+Surprisingly, we got lucky that our assumption worked. The next thing to do is see whether we can view more wishes using our discovery. To do this, let's try replacing the **wish_1.txt** with **wish_2.txt**.
+
+![](payload2.png){: width="2114" height="748"}
+
+As a result, we were able to view the next wish. You may observe that we just incremented the number by one. Given this, you may continue checking the other wishes and see all the wishes stored in the application.
+
+After iterating through the wishes, we have proved the potential impact of the vulnerability, and anyone who leverages this could read the wishes submitted by the townspeople of Wareville.
+
+## Conclusion
+
+It was confirmed that the application was vulnerable, and the developers were not at fault since they only wanted to give the townspeople something before Christmas. However, it became evident that bypassing security testing led to an application that did not securely handle incoming requests.
+
+As soon as the vulnerability was discovered, McSkidy promptly coordinated with the developers to implement the necessary mitigations. The following proactive approach helped to address the potential risks against XXE attacks:
+
+- **Disable External Entity Loading**: The primary fix is to disable external entity loading in your XML parser. In PHP, for example, you can prevent XXE by setting **libxml_disable_entity_loader(true)** before processing the XML.
+- **Validate and Sanitise User Input**: Always validate and sanitise the XML input received from users. This ensures that only expected data is processed, reducing the risk of malicious content being included in the request. For example, remove suspicious keywords like **/etc/host**, **/etc/passwd**, etc, from the request.
+
+After discovering the vulnerability, McSkidy immediately remembered that a CHANGELOG file exists within the web application, stored at the following endpoint: http://MACHINE_IP/CHANGELOG. After checking, it can be seen that someone pushed the vulnerable code within the application after Software's team.
+
+![](discovery.png){: width="754" height="372"}
+
+With this discovery, McSkidy still couldn't confirm whether the Mayor intentionally made the application vulnerable. However, the Mayor had already become suspicious, and McSkidy began to formulate theories about his possible involvement.
+
+## Answers
+
+### Question 1
+
+What is the flag discovered after navigating through the wishes?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('THM{Brut3f0rc1n6_mY_w4y}')" style="cursor:pointer;">THM{Brut3f0rc1n6_mY_w4y}</span>
+    <i onclick="navigator.clipboard.writeText('THM{Brut3f0rc1n6_mY_w4y}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 2
+
+What is the flag seen on the possible proof of sabotage?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('THM{m4y0r_m4lw4r3_b4ckd00rs}')" style="cursor:pointer;">THM{m4y0r_m4lw4r3_b4ckd00rs}</span>
+    <i onclick="navigator.clipboard.writeText('THM{m4y0r_m4lw4r3_b4ckd00rs}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
