@@ -14,7 +14,7 @@ Glitch, a quiet, talented security SOC-mas engineer, had a hunch that these year
 
 Unaware of Glitch's good intentions, the SOC team spotted anomalies: Logs showing admin access, escalation of privileges, patched systems behaving differently, and security tools triggering alerts. The SOC team misinterpreted the system modifications as a sign of an insider threat or rogue attacker and decided to launch an investigation using the Atomic Red Team framework.
 
-![Tryhackme Room Link](bell.svg){: width="1152" height="300" .shadow }
+![Tryhackme Room Link](bell.png){: width="1152" height="300" .shadow }
 _<https://tryhackme.com/r/room/adventofcyber2024>_
 
 ![](house.gif){: width="1140" height="800"}
