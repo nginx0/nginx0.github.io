@@ -257,16 +257,12 @@ Paste the YouTube link into the converter tool, then download the generated ZIP 
 
 ![](exifsong.png){: width="1420" height="647"}
 
-<div class="answer" onclick="this.style.filter='none';">
+```console
+<div onclick="this.querySelector('p').style.filter='none';" style="cursor:pointer;">
   <p style="filter: blur(5px);">Tyler Ramsbey</p>
 </div>
+```
 
-<style>
-  .answer {
-    cursor: pointer;
-    display: inline-block;
-  }
-</style>
 
 
 
