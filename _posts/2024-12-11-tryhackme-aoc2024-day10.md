@@ -261,7 +261,7 @@ What is the flag value inside the **flag.txt** file that’s located on the Admi
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
   <div style="padding:10px; border:1px solid #ccc;">
-    <span onclick="navigator.clipboard.writeText('THM{PHISHING_CHRISTMAS}')" style="cursor:pointer;">THM{PHISHING_CHRISTMAS}e</span>
+    <span onclick="navigator.clipboard.writeText('THM{PHISHING_CHRISTMAS}')" style="cursor:pointer;">THM{PHISHING_CHRISTMAS}</span>
     <i onclick="navigator.clipboard.writeText('THM{PHISHING_CHRISTMAS}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
