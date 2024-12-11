@@ -322,7 +322,7 @@ What is the SSID and BSSID of the access point? Format: SSID, BSSID
 <details>
   <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
   <div style="padding:10px; border:1px solid #ccc;">
-    <span onclick="navigator.clipboard.writeText('MalwareM_AP, 02:00:00:00:00:00')" style="cursor:pointer;">53.94.201.69</span>
+    <span onclick="navigator.clipboard.writeText('MalwareM_AP, 02:00:00:00:00:00')" style="cursor:pointer;">MalwareM_AP, 02:00:00:00:00:00</span>
     <i onclick="navigator.clipboard.writeText('MalwareM_AP, 02:00:00:00:00:00')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
