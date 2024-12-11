@@ -17,7 +17,7 @@ Glitch smiles confidently. *"I think I know the last technique he relies on to g
 McSkidy stands up from her chair with a surge of excitement. *"Let me guess, it's a notorious way to get into a network - a Wi-Fi attack?!"*  
 Glitch nods decisively. *"Exactly! Let's be one step ahead of the Mayor."*
 
-![Tryhackme Room Link](bell.svg){: width="1152" height="300" .shadow }
+![Tryhackme Room Link](bell.png){: width="1152" height="300" .shadow }
 _<https://tryhackme.com/r/room/adventofcyber2024>_
 
 
