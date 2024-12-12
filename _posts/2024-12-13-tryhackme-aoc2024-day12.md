@@ -102,9 +102,7 @@ As a penetration tester, one key step in identifying race conditions is to valid
 
 For this example, we will log in to the Warville banking application using the credentials:
 
-<p align="center">
-  <img src="credential.png" alt="Credential" width="433" height="143">
-</p>
+![](credential.png){: width="433" height="143"}
 
 Once logged in, you will see the following dashboard that will contain the following two primary functions:
 
