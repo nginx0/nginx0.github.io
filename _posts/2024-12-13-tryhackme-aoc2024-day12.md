@@ -198,13 +198,9 @@ Log in with the following credentials:
 - Password: glitch
 
 Once logged in, enter **111** as the account number and **500** as the amount.
-
 Send the request and capture the **POST /transfer** request.
-
 Send the captured request to the **Repeater**. Repeat it 10 times.
-
 Click the **Request** tab, then click **Create Tab Group** and select all **10 requests**.
-
 Click **Send**, and choose **Send Group in Parallel**.
 
 Finally, navigate to **/dashboard or refresh the page** to retrieve the flag.
