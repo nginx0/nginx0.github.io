@@ -117,6 +117,16 @@ Following the successful identification of the WebSocket Message Manipulation vu
 
 ![](mayor.png){: width="1140" height="691"}
 
+## Explanation
+
+Open the URL using your machine's IP: **http://MACHINE_IP:5000**.
+Set the intercept and capture the **Send** request along with the message.<br>
+Change the sender value to "8" (User Mayor Malware)<br>
+Click the **Forward** button, then turn off **Intercept**<br>
+Switch to browser to get Flag2 in **Conmunity Reports**<br>
+
+![](flag2.png){: width="1363" height="615"}
+
 ## Answer
 
 ### Question 1
