@@ -119,11 +119,11 @@ Following the successful identification of the WebSocket Message Manipulation vu
 
 ## Explanation
 
-Open the URL using your machine's IP: **http://MACHINE_IP:5000**.
+Open the URL using your machine's IP: **http://MACHINE_IP**.
 Set the intercept and capture the **Send** request along with the message.<br>
-Change the sender value to "8" (User Mayor Malware)<br>
+Change the sender value to **"8"** (User Mayor Malware)<br>
 Click the **Forward** button, then turn off **Intercept**<br>
-Switch to browser to get Flag2 in **Conmunity Reports**<br>
+Switch to browser to get Flag2 in **Community Reports**<br>
 
 ![](flag2.png){: width="1363" height="615"}
 
