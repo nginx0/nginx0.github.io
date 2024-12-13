@@ -75,7 +75,7 @@ Without good security checks, this kind of message tampering can lead to anythin
 
 ### Exploitation
 
-Navigate to http://<MACHINEIP>
+Navigate to http://MACHINE_IP
 
 ![](tracker.png){: width="1394" height="570"}
 
