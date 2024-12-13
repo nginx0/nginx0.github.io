@@ -10,14 +10,12 @@ image:
 
 Wares are all about security. The Glitch discovers that an app is illegally tracking the cars in Wareville. Not many car thefts in the city warrant such an extreme measure. He reaches out to McSkidy to investigate and identify how the application is tracking them and leaking users' positions.
 
-<div align="center">
-  
-*This SOC-mas was packed with exploits and hacking,*<br>  
-*Today's threat - an app, which allows Wares' car tracking.*<br>  
-*Mayor Malware, no doubt, well that's their suspicion!*<br>  
-*For Glitch and McSkidy, the proof was their mission.*<br>
-  
-</div>
+<p align="center"><i>
+This SOC-mas was packed with exploits and hacking,<br>
+Today's threat - an app, which allows Wares' car tracking.<br>
+Mayor Malware, no doubt, well that's their suspicion!<br>
+For Glitch and McSkidy, the proof was their mission.
+</i></p>
 
 ![Tryhackme Room Link](bell.png){: width="1152" height="300" .shadow }
 _<https://tryhackme.com/r/room/adventofcyber2024>_
