@@ -12,10 +12,10 @@ Wares are all about security. The Glitch discovers that an app is illegally trac
 
 <div align="center">
   
-*This SOC-mas was packed with exploits and hacking,  
-Today's threat - an app, which allows Wares' car tracking.  
-Mayor Malware, no doubt, well that's their suspicion!  
-For Glitch and McSkidy, the proof was their mission.*
+*This SOC-mas was packed with exploits and hacking,*<br>  
+*Today's threat - an app, which allows Wares' car tracking.*<br>  
+*Mayor Malware, no doubt, well that's their suspicion!*<br>  
+*For Glitch and McSkidy, the proof was their mission.*<br>
   
 </div>
 
