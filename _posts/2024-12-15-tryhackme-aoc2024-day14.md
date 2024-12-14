@@ -190,7 +190,7 @@ There is a triumphant gleam in Mayor Malware’s eyes while he stares intently a
 
 ![](cert.png){: width="1216" height="647"}
 
-[Download the route-elf-traffic.sh script](assets/scripts/route-elf-traffic.sh) 
+[Download the route-elf-traffic.sh script](https://github.com/nginx0/nginx0.github.io/raw/refs/heads/main/assets/scripts/route-elf-traffic.sh) 
 
 With proxy listeners setup in the BurpSuite with your AttackBox IP / Local machine, execute the script and look into **Proxy > HTTP History** for credentials
 
