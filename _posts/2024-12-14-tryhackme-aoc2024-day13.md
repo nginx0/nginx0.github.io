@@ -1,7 +1,7 @@
 ---
 title: "TryHackMe: Advent Of Cyber 2024 Day 13"
 categories: [TryHackMe]
-tags: [wifi attack, wpa, advent of cyber]
+tags: [websocket, advent of cyber]
 render_with_liquid: false
 img_path: /images/tryhackme_aoc2024_day13/
 image:
