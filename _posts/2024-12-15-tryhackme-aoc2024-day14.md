@@ -192,7 +192,7 @@ There is a triumphant gleam in Mayor Malware’s eyes while he stares intently a
 
 [Download the route-elf-traffic.sh script](https://github.com/nginx0/nginx0.github.io/raw/refs/heads/main/assets/scripts/route-elf-traffic.sh) 
 
-With proxy listeners setup in the BurpSuite with your AttackBox IP / Local machine, execute the script and look into **Proxy > HTTP History** for credentials
+With proxy listeners setup in the BurpSuite with your AttackBox IP / Local machine, execute the script, look into **Proxy > HTTP History** for credentials and retrieve the flags.
 
 ![](route.png){: width="1003" height="680"}
 
