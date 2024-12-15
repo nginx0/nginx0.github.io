@@ -268,9 +268,9 @@ Your task for today is to investigate WareVille's SOC-mas Active Directory contr
 ## Explanation
 
 - Launch **Event Viewer** and look into **Windows Logs > Security**, find user "**Glitch Malware**" for date and event ID
-- Look in C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history
-- Look in the PowerShell log file located in Application and Services Logs -> Windows PowerShell, find for "password"
-- Type Get-GPO -All in Powershell
+- Look in **C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history**
+- Look in the PowerShell log file located in **Application and Services Logs -> Windows PowerShell**, Find > "**password**"
+- Type **Get-GPO -All** in Powershell
 
 ## Answer
 
