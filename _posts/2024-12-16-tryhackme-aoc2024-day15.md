@@ -43,7 +43,7 @@ Combining all these components allows us to establish the **Distinguished Name (
 
 **DN=CN=Mayor Malware, OU=Management, DC=wareville, DC=thm**
 
-**Core Active Directory Components**
+## Core Active Directory Components
 
 Active Directory contains several key components that allow it to provide a wide range of services. Understanding these components will give one a clear picture of how AD supports administrative and security operations.
 
@@ -225,7 +225,7 @@ User accounts are a valuable and often successful method of attack. You can use 
 
 To view all locked accounts, you can use the Search-ADAccount cmdlet, applying some filters to show information such as the last time the user had successfully logged in.
 
-- **Search-ADAccount -LockedOut | Select-Object Name, SamAccountName, LockedOut, LastLogonDate, DistinguishedName**
+<strong>Search-ADAccount -LockedOut | Select-Object Name, SamAccountName, LockedOut, LastLogonDate, DistinguishedName</strong>
 
 Additionally, a great way to quickly review the user accounts present on a domain, as well as their group membership, is by using the **Get-ADUser** cmdlet, demonstrated below:
 
