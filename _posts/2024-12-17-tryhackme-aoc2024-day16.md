@@ -13,22 +13,22 @@ Another day, another challenge and, unfortunately for McSkidy, another intrusion
 <p align="center"><i>As SOC-mas approached, so did the need,</i><br>
 <i>To provide those without, with something to read.</i><br>
 <i>Care4Wares tried, they made it their mission,</i><br>
-<i>A gift for all wares, a SOC-mas tradition.</i></p><br>
+<i>A gift for all wares, a SOC-mas tradition.</i></p>
 
 <p align="center"><i>McSkidy logged on and felt some confusion,</i><br>
 <i>An alert saying here, a detected intrusion.</i><br>
 <i>Inspection began as to what was at fault,</i><br>
-<i>It seems access was gained to McSkidys key vault.</i></p><br>
+<i>It seems access was gained to McSkidys key vault.</i></p>
 
 <p align="center"><i>She checked and she checked as she had to be sure,</i><br>
 <i>But it hadn’t been long since adopting Azure.</i><br>
 <i>Troubleshooting ensued, ideas had been tabled,</i><br>
-<i>Which would have been great, if logs were enabled.</i></p><br>
+<i>Which would have been great, if logs were enabled.</i></p>
 
 <p align="center"><i>With three hours slept,</i><br>
 <i>And no records kept.</i><br>
 <i>McSkidy then knew,</i><br>
-<i>What she needed to do.</i></p><br>
+<i>What she needed to do.</i></p>
 
 <p align="center"><i>It’s true that on her, this town does depend,</i><br>
 <i>But to find what was wrong, she needed a friend.</i><br>
