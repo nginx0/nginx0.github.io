@@ -18,6 +18,8 @@ _<https://tryhackme.com/r/room/adventofcyber2024>_
 
 ## Background Story
 
+![](mcskidy.png){: width="450" height="800"}
+
 Marta May Ware is going crazy: someone has disconnected the main server from the Wareville network, and nobody knows who it is! As soon as she realized it, she contacted Wareville's top physical security company, WareSec&Aware, to let her view the data centre's CCTV streams. They forbade it entirely: for privacy reasons, only the camera owner can view the recordings. Not even the WareSec&Aware employees themselves are allowed to do so.
 
 Still, they said there was no recording of anybody entering the data centre yesterday! How could that be, wondered Marta May, desperate for answers. Their first supposition was that the owner of the cameras must have deleted the recordings from their managing web page. But the data centre's camera owner surely can't be the perpetrator: it is no other than Byte, Glitch's dog! Glitch insisted with Marta to leave the ownership of the cameras to Byte precisely to avoid these kinds of happenings: Byte, the ultimate good boy, combines loyalty and sharp instincts to keep any place safe.
