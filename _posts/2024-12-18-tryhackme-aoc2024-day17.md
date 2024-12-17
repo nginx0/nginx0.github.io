@@ -339,7 +339,7 @@ From the output, it seems the following was the timeline of the attack:
 - We found two other session IDs associated with the IP address.
 - We correlated back to the cctv_feed logs to find the traces of any evidence revolving around those session IDs, and found the name of the attacker.
 
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+<div style="display: flex; justify-content: center; align-items: center; min-height: 300px;">
     <lottie-player
         src="https://lottie.host/949e2e8d-d536-432b-ac05-ba04d8ad4f57/yYkj8wQAZ4.json"
         background="transparent"
