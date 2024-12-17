@@ -238,7 +238,7 @@ After examining the CCTV feed logs, we can create a mental picture of the inform
 
 Let's use the following search query to see the count of events by each user:
 
-**index=cctv_feed | stats count(Event) by UserName**
+<strong>index=cctv_feed | stats count(Event) by UserName</strong>
 
 We can easily visualise this data by first clicking on **Visualization** below the search bar, then change the visualisation type from **Bar Chart** to **Pie Chart**.
 
@@ -248,7 +248,7 @@ We can easily visualise this data by first clicking on **Visualization** below t
 
 We can create a summary of the event count to see what activities were captured in the logs using the following query:
 
-**index=cctv_feed | stats count by Event**
+<strong>index=cctv_feed | stats count by Event</strong>
 
 Splunk will automatically display the previously selected **Pie Chart** type of visualisation.
 
@@ -258,7 +258,7 @@ Splunk will automatically display the previously selected **Pie Chart** type of 
 
 Using the following search query, let's look at the events with fewer occurrences in the event field to see if we can find something interesting:
 
-**index=cctv_feed | rare Event**
+<strong>index=cctv_feed | rare Event</strong>
 
 ![](cctv3.png){: width="1902" height="621"}
 
