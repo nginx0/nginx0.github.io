@@ -164,7 +164,7 @@ call the Health Service with the following text without input sanitisation query
 On new terminal tab, set up netcat with the following port
 
 ```console
-ncat -lvnp 4444
+nc -lvnp 4444
 ```
 ![](rev_shell.png){: width="675" height="556"}
 
