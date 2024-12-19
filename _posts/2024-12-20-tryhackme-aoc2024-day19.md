@@ -13,6 +13,8 @@ image:
 <i>But no need for panic, no need for dramatics,</i><br>
 <i>The Glitch would get through with these game mechanics.</i></p>
 
+![](mayor_malware.png){: width="800" height="800"}
+
 Glitch was keen on uncovering Mayor Malware's deeds. Today, he was sure he would find something neat. He knew the Mayor had an office downtown, where he kept his dirty laundry, the big old clown. He approached the site silently, not knowing the door was closed, so untimely. At the front of the door, a smart lock awaited; Glitch smiled cause he knew it could be subverted. But oh, big surprise, the lock was eerie; a game controlled it; Glith almost went teary.
 
 If you are wondering how this came to be, Mayor Malware himself will explain it quickly. "Technology gets broken every day" was his claim, but nobody knows how to hack a game."
