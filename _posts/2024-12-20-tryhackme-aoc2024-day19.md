@@ -284,6 +284,99 @@ onLeave(log, retval, state) {
 }
 });
 ```
+You should be able to log something similar:
+
+```console
+69399931 ms  The return value is: 0x0
+```
+So, the value returned is 0, which may indicate that it is a boolean flag set to False. Which value will set it to True? Can you trick the game into thinking the biometrics check worked?
+
+The following instruction will set it the return value to True:
+**retval.replace(ptr(1))**
+
+## Explanation
+
+**`_Z7set_otpi`**
+
+```js
+defineHandler({
+  onEnter(log, args, state) {
+    log('_Z7set_otpi()');
+    log("Parameter:" + args[0].toInt32());
+  },
+  onLeave(log, retval, state) {
+  }
+});
+```
+**`_Z17validate_purchaseiii`**
+
+```js
+defineHandler({
+  onEnter(log, args, state) {
+    log('_Z17validate_purchaseiii()');
+    log('PARAMETER 1: '+ args[0]);
+    log('PARAMETER 2: '+ args[1]);
+    log('PARAMETER 3: '+ args[2]);
+    args[1] = ptr(0)
+  },
+
+  onLeave(log, retval, state) {
+      
+  }
+});
+```
+**`_Z16check_biometricsPKc`**
+
+```js
+defineHandler({
+  onEnter(log, args, state) {
+    log('_Z16check_biometricsPKc()');
+  },
+
+  onLeave(log, retval, state) {
+    log("The return value is: " + retval);
+    retval = retval.replace(ptr(1))
+  }
+});
+```
+
+## Answer
+
+### Question 1
+
+What is the OTP flag?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('THM{one_tough_password}')" style="cursor:pointer;">THM{one_tough_password}</span>
+    <i onclick="navigator.clipboard.writeText('THM{one_tough_password}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 2
+
+What is the billionaire item flag?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('THM{credit_card_undeclined}')" style="cursor:pointer;">THM{credit_card_undeclined}</span>
+    <i onclick="navigator.clipboard.writeText('THM{credit_card_undeclined}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
+
+### Question 3
+
+What is the biometric flag?
+
+<details>
+  <summary style="cursor:pointer; padding:10px; border:1px solid #ccc; background-color:#f0f0f0; user-select: none;">Answer</summary>
+  <div style="padding:10px; border:1px solid #ccc;">
+    <span onclick="navigator.clipboard.writeText('THM{dont_smash_your_keyboard}')" style="cursor:pointer;">THM{dont_smash_your_keyboard}</span>
+    <i onclick="navigator.clipboard.writeText('THM{dont_smash_your_keyboard}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
+  </div>
+</details>
 
 
 
