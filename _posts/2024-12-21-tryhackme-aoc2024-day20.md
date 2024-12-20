@@ -165,15 +165,19 @@ Lookup for **tcp.stream eq 1** > **Right click > Follow > TCP Stream** to get th
 
 ![](q1.png){: width="850" height="254"}
 
-![](q2.png){: width="846" height="286"}
-
 Switch to **Stream 2** to get the command
 
 Switch to **Stream 3** to get the filename
 
 - Open [cyberchef](https://gchq.github.io/CyberChef/) in local machine browser, search for **AES Decrypt** drag it into the recipe box.
-- Copy the key in **Stream 3** into the **Key Field**
-- Switch the mode to **ECB**, switch to **Stream 4** and copy the encrypted value in **Input** field to get the flag
+
+- In VM, switch to **Stream 3**, copy the key into the **Key Field**
+
+![](q4.png){: width="848" height="435"}
+
+- Back in Cyberchef, switch the mode to **ECB**, copy the encrypted value **Stream 4** and paste it in **Input** field to get the flag
+
+![](q2.png){: width="846" height="286"}
 
 ![](q5.png){: width="1533" height="707"}
 
