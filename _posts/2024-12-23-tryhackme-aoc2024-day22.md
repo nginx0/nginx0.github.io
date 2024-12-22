@@ -8,10 +8,6 @@ image:
   path: banner.png
 ---
 
-![Tryhackme Room Link](bell.png){: width="1152" height="300" .shadow }
-_<https://tryhackme.com/r/room/adventofcyber2024>_
-
-
 <p align="center">
 <i>Mayor Malware laughed hard at what he had done,</i><br>
 <i>another scheme hatched, another scheme won.</i><br>
@@ -40,9 +36,8 @@ _<https://tryhackme.com/r/room/adventofcyber2024>_
 <i>With this he would find, a new home for his name!</i>
 </p>
 
-
-![](mayor_malware.png){: width="990" height="800"}
-
+![Tryhackme Room Link](bell.png){: width="1152" height="300" .shadow }
+_<https://tryhackme.com/r/room/adventofcyber2024>_
 
 ## Learning Objectives
 
@@ -50,7 +45,7 @@ _<https://tryhackme.com/r/room/adventofcyber2024>_
 - Learn about DFIR, and the challenges that come with DFIR in an ephemeral environment.
 - Learn how DFIR can be done in a Kubernetes environment using log analysis.
 
-
+![](mayor_malware.png){: width="990" height="800"}
 
 ## Kubernetes Explained
 
@@ -388,7 +383,6 @@ The final piece of the puzzle revolved around this secret. Finally, she runs the
 ubuntu@tryhackme:~/dfir_artefacts$ kubectl get secret pull-creds -n wareville -o jsonpath='{.data.\.dockerconfigjson}' | base64 --decode
 ```
 Shaking her head, McSkidy then confirms that the docker registry pull password is the same as the push password. This means that after retrieving these credentials, Mayor Malware would have been able to make the docker registry push we saw earlier and ensure his malicious web shell was deployed into the Kubernetes environment and gain persistence. It is for this reason that push and pull credentials should always be different. With that, the investigation is all tied up, the conclusion being that Mayor Malware most certainly belongs on the naughty list this year!
-
 
 ## Answer
 
