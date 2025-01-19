@@ -15,8 +15,9 @@ But beware, this won't be a walk in the digital park. Hack Smarter Security has 
 
 May your code be swift, your exploits flawless, and victory yours!
 
-[![](room_card.webp){: width="300" height="300" .shadow; text-align: center}](https://tryhackme.com/r/room/silverplatter)
-
+[![Tryhackme Room Link](room_card.webp){: width="300" height="300" .shadow}
+<https://tryhackme.com/r/room/silverplatter>
+  
 ## Reconnaissance 
 
 We begin with an Nmap scan and discover three open ports: Port 22, hosting an SSH service; Port 80, serving an nginx web server and Port 8080, running another web server.
