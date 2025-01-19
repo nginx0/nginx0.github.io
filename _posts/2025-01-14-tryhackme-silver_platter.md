@@ -15,8 +15,7 @@ But beware, this won't be a walk in the digital park. Hack Smarter Security has 
 
 May your code be swift, your exploits flawless, and victory yours!
 
-[![Tryhackme Room Link](room_card.png){: width="300" height="300" .shadow}](https://tryhackme.com/r/room/silverplatter){: .center }
-
+[![Tryhackme Room Link](room_card.png){: width="300" height="300" .shadow}](https://tryhackme.com/r/room/silverplatter)
 
 ## Reconnaissance 
 
@@ -167,7 +166,7 @@ This endpoint appeared to display a message based on the value of the ID paramet
 
 The key question was whether the application validated user permissions for the ID parameter. To test for [IDOR](https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html), we modified the ID parameter in the URL to different values. For example:
 
-http://silverplatter.thm:8080/silverpeas/RSILVERMAIIL/jsp/ReadMessage.jsp?ID=6
+```http://silverplatter.thm:8080/silverpeas/RSILVERMAIIL/jsp/ReadMessage.jsp?ID=6```
 
 Instead of returning an error or denying access, the application displayed a message associated with ID=6. This confirmed that the server did not validate whether the logged-in user had permissions to access the message. By incrementing or decrementing the ID value, we could access messages belonging to other users.
 
@@ -207,11 +206,3 @@ With the credentials, we switched user to Tyler. When checking sudo privileges f
 With this, we use sudo to escalate and retrieve root flag.
 
 ![](root_flag.png){: width="1571" height="308"}
-
-
-
-
-
-
-
-
