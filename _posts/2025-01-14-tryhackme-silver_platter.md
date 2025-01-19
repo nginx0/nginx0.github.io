@@ -15,9 +15,10 @@ But beware, this won't be a walk in the digital park. Hack Smarter Security has 
 
 May your code be swift, your exploits flawless, and victory yours!
 
-<center>
+<div style="text-align: center;">
   ![Tryhackme Room Link](room_card.webp){: width="300" height="300" .shadow}
-</center>
+</div>
+
 
 ## Reconnaissance 
 
