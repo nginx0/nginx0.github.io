@@ -10,7 +10,7 @@ image:
 
 **Extracted** began with inspecting a packet capture and discovering a **PowerShell script** within it. Upon examining the script, we noted that it extracted the memory dump of a **KeePass** process along with a **KeePass** database after encoding them. We successfully extracted the encoded files from the packet capture and recovered them by decoding. Subsequently, due to a vulnerability in **KeePass**, we were able to extract the partial master password from the recovered memory dump. After generating a wordlist for every possible master password and testing these against the database, we identified the correct one and used it to access the database, uncovering the flag inside.
 
-[![Tryhackme Room Link](room_card.webp){: width="300" height="300" .shadow}](https://tryhackme.com/r/room/extractedroom){: .center }
+[![Tryhackme Room Link](room_card.webp){: width="300" height="300" .shadow}](https://tryhackme.com/r/room/silverplatter)
 
 ## Examining the Packet Capture
 
