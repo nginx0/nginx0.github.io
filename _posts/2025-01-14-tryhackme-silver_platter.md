@@ -119,7 +119,8 @@ Silverpeas up to and including 6.3.4 is vulnerable to a trivial authentication b
 
 E.g. the standard login request will look like this:
 
-```POST /silverpeas/AuthenticationServlet HTTP/2
+```
+POST /silverpeas/AuthenticationServlet HTTP/2
 Host: 212.129.58.88
 Content-Length: 28
 Origin: https://212.129.58.88
@@ -131,7 +132,8 @@ This will fail login (unless they have forgotten to change the default password)
 
 But if you remove the password field like this:
 
-```POST /silverpeas/AuthenticationServlet HTTP/2
+```
+POST /silverpeas/AuthenticationServlet HTTP/2
 Host: 212.129.58.88
 Content-Length: 28
 Origin: https://212.129.58.88
