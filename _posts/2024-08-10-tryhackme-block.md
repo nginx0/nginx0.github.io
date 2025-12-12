@@ -3,7 +3,7 @@ title: "TryHackMe: Block"
 categories: [TryHackMe]
 tags: [pcap, wireshark, lsass, pypykatz, python, smb]
 render_with_liquid: false
-img_path: /images/tryhackme_block/
+media_subpath: /images/tryhackme_block/
 image:
   path: room_image.webp
 ---

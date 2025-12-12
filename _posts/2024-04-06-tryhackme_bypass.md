@@ -3,7 +3,7 @@ title: 'TryHackMe: Bypass'
 categories: [TryHackMe]
 tags: [web, nc, curl, ping, rce]
 render_with_liquid: false
-img_path: /images/tryhackme_bypass/
+media_subpath: /images/tryhackme_bypass/
 image:
   path: room_image.webp
 ---

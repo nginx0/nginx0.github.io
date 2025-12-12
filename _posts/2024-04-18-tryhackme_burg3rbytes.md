@@ -3,7 +3,7 @@ title: 'TryHackMe: Burg3r Bytes'
 categories: [TryHackMe]
 tags: [web, race condition, ssti,  python]
 render_with_liquid: false
-img_path: /images/tryhackme_burg3rbytes/
+media_subpath: /images/tryhackme_burg3rbytes/
 image:
   path: room_image.webp
 ---

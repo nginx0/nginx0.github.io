@@ -3,7 +3,7 @@ title: 'TryHackMe: Hack Smarter Security'
 categories: [TryHackMe]
 tags: [web, file disclosure, ssh, windows, service]
 render_with_liquid: false
-img_path: /images/tryhackme_hack_smarter_security/
+media_subpath: /images/tryhackme_hack_smarter_security/
 image:
   path: room_image.webp
 ---

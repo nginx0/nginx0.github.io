@@ -3,7 +3,7 @@ title: 'TryHackMe: Kitty'
 categories: [TryHackMe]
 tags: [web, php, sqli, ssh, cron, command injection]
 render_with_liquid: false
-img_path: /images/tryhackme_kitty/
+media_subpath: /images/tryhackme_kitty/
 image:
   path: room_image.webp
 ---

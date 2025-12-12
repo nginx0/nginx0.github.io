@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 2"
 categories: [TryHackMe]
 tags: [log analysis, elastic, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day2/
+media_subpath: /images/tryhackme_aoc2024_day2/
 image:
   path: banner.png
 ---

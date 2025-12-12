@@ -3,7 +3,7 @@ title: "TryHackMe: The London Bridge"
 categories: [TryHackMe]
 tags: [web, ffuf, fuzz, ssrf, kernel exploit, firefox]
 render_with_liquid: false
-img_path: /images/tryhackme_the_london_bridge/
+media_subpath: /images/tryhackme_the_london_bridge/
 image:
   path: room_image.webp
 ---

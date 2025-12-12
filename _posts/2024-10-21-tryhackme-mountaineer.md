@@ -3,7 +3,7 @@ title: "TryHackMe: Mountaineer"
 categories: [TryHackMe]
 tags: [web, nginx, file disclosure, roundcube, vhost, wordpress, wpscan, cupp, keepass]
 render_with_liquid: false
-img_path: /images/tryhackme_mountaineer/
+media_subpath: /images/tryhackme_mountaineer/
 image:
   path: room_image.webp
 ---

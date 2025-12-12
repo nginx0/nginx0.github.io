@@ -1,9 +1,9 @@
 ---
 title: "TryHackMe: Lo-Fi"
 categories: [TryHackMe]
-tags: [LFI]
+tags: [lfi]
 render_with_liquid: false
-img_path: /images/tryhackme_lo_fi/
+media_subpath: /images/tryhackme_lo_fi/
 image:
   path: banner.png
 ---

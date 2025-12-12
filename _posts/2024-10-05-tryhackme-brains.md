@@ -3,7 +3,7 @@ title: "TryHackMe: Brains"
 categories: [TryHackMe]
 tags: [web, authentication bypass, rce, splunk]
 render_with_liquid: false
-img_path: /images/tryhackme_brains/
+media_subpath: /images/tryhackme_brains/
 image:
   path: room_image.webp
 ---

@@ -3,7 +3,7 @@ title: "TryHackMe: Silver Platter"
 categories: [TryHackMe]
 tags: [IDOR,cve]
 render_with_liquid: false
-img_path: /images/tryhackme_silverplatter/
+media_subpath: /images/tryhackme_silverplatter/
 image:
   path: banner.png
 ---

@@ -3,7 +3,7 @@ title: "TryHackMe: Mouse Trap"
 categories: [TryHackMe]
 tags: [windows, rce, unquoted service path, persistence, sysmon]
 render_with_liquid: false
-img_path: /images/tryhackme_mouse_trap/
+media_subpath: /images/tryhackme_mouse_trap/
 image:
   path: room_image.webp
 ---

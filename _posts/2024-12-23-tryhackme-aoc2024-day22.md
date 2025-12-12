@@ -1,9 +1,9 @@
 ---
 title: "TryHackMe: Advent Of Cyber 2024 Day 22"
 categories: [TryHackMe]
-tags: [kubernetes, DFIR, advent of cyber]
+tags: [kubernetes, dfir, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day22/
+media_subpath: /images/tryhackme_aoc2024_day22/
 image:
   path: banner.png
 ---

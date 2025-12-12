@@ -3,7 +3,7 @@ title: "TryHackMe: Pyrat"
 categories: [TryHackMe]
 tags: [python, git, brute-force]
 render_with_liquid: false
-img_path: /images/tryhackme_pyrat/
+media_subpath: /images/tryhackme_pyrat/
 image:
   path: room_image.webp
 ---

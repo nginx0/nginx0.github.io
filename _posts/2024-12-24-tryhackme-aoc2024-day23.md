@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 23"
 categories: [TryHackMe]
 tags: [hashes, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day23/
+media_subpath: /images/tryhackme_aoc2024_day23/
 image:
   path: banner.png
 ---

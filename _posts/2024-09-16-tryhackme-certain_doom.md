@@ -3,7 +3,7 @@ title: "TryHackMe: CERTain Doom"
 categories: [TryHackMe]
 tags: [web, java, insecure deserialization, ysoserial, pivoting, weak credentials, api, jwt]
 render_with_liquid: false
-img_path: /images/tryhackme_certain_doom/
+media_subpath: /images/tryhackme_certain_doom/
 image:
   path: room_image.webp
 ---

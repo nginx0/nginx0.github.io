@@ -18,6 +18,8 @@ title: nginx0 # the main title
 
 tagline: CTF Writeups / InfoSec Blog # it will display as the sub-title
 
+favicon: /assets/img/favicons/favicon.ico
+
 description: >- # used by seo meta and the atom feed
   CTF Writeups / InfoSec Blog
 
@@ -63,7 +65,7 @@ google_analytics:
 #     light  - Use the light color scheme
 #     dark   - Use the dark color scheme
 #
-theme_mode: dark # [light|dark]
+theme_mode: "dark" # [light|dark]
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url

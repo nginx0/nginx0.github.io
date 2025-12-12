@@ -3,7 +3,7 @@ title: 'TryHackMe: New York Flankees'
 categories: [TryHackMe]
 tags: [web, padding oracle, docker]
 render_with_liquid: false
-img_path: /images/tryhackme_newyorkflankees/
+media_subpath: /images/tryhackme_newyorkflankees/
 image:
   path: room_image.webp
 ---

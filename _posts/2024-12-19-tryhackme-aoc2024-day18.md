@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 18"
 categories: [TryHackMe]
 tags: [AI,injection, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day18/
+media_subpath: /images/tryhackme_aoc2024_day18/
 image:
   path: banner.png
 ---

@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 10"
 categories: [TryHackMe]
 tags: [phishing, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day10/
+media_subpath: /images/tryhackme_aoc2024_day10/
 image:
   path: banner.png
 ---

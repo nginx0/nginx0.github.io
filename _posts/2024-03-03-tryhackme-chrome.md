@@ -3,7 +3,7 @@ title: 'TryHackMe: Chrome'
 categories: [TryHackMe]
 tags: [pcap, smb, wireshark, dnspy, windows, chrome, dpapi, mimikatz]
 render_with_liquid: false
-img_path: /images/tryhackme_chrome/
+media_subpath: /images/tryhackme_chrome/
 image:
   path: room_image.webp
 ---

@@ -3,7 +3,7 @@ title: 'TryHackMe: Airplane'
 categories: [TryHackMe]
 tags: [web, file disclosure, gdb, suid, sudo]
 render_with_liquid: false
-img_path: /images/tryhackme_airplane/
+media_subpath: /images/tryhackme_airplane/
 image:
   path: room_image.webp
 ---

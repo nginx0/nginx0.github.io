@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 24"
 categories: [TryHackMe]
 tags: [wireshark, iot, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day24/
+media_subpath: /images/tryhackme_aoc2024_day24/
 image:
   path: banner.png
 ---

@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 19"
 categories: [TryHackMe]
 tags: [api, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day19/
+media_subpath: /images/tryhackme_aoc2024_day19/
 image:
   path: banner.png
 ---

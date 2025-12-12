@@ -3,7 +3,7 @@ title: "TryHackMe: Rabbit Hole"
 categories: [TryHackMe]
 tags: [web, sql injection, mysql, python]
 render_with_liquid: false
-img_path: /images/tryhackme_rabbit_hole/
+media_subpath: /images/tryhackme_rabbit_hole/
 image:
   path: room_image.webp
 ---

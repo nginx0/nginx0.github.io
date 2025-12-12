@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 7"
 categories: [TryHackMe]
 tags: [log analysis, aws, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day7/
+media_subpath: /images/tryhackme_aoc2024_day7/
 image:
   path: banner.png
 ---

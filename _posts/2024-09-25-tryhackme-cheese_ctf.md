@@ -3,7 +3,7 @@ title: "TryHackMe: Cheese CTF"
 categories: [TryHackMe]
 tags: [web, portspoofing, sqli, lfi, rce, ssh, service, timer, suid, sudo]
 render_with_liquid: false
-img_path: /images/tryhackme_cheese_ctf/
+media_subpath: /images/tryhackme_cheese_ctf/
 image:
   path: room_image.webp
 ---

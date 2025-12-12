@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 8"
 categories: [TryHackMe]
 tags: [shellcode, powershell, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day8/
+media_subpath: /images/tryhackme_aoc2024_day8/
 image:
   path: banner.png
 ---

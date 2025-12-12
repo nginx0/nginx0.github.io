@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 16"
 categories: [TryHackMe]
 tags: [azure, cloud, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day16/
+media_subpath: /images/tryhackme_aoc2024_day16/
 image:
   path: banner.png
 ---

@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 14"
 categories: [TryHackMe]
 tags: [certificate, mitm, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day14/
+media_subpath: /images/tryhackme_aoc2024_day14/
 image:
   path: banner.png
 ---

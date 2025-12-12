@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 3"
 categories: [TryHackMe]
 tags: [log analysis, elastic, rce, ELK, KQL, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day3/
+media_subpath: /images/tryhackme_aoc2024_day3/
 image:
   path: banner.png
 ---

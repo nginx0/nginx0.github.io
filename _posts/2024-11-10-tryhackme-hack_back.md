@@ -3,7 +3,7 @@ title: "TryHackMe: Hack Back"
 categories: [TryHackMe]
 tags: [reverse engineering, ghidra, phishing, nc, blockchain, smart contract]
 render_with_liquid: false
-img_path: /images/tryhackme_hack_back/
+media_subpath: /images/tryhackme_hack_back/
 image:
   path: room_image.webp
 ---

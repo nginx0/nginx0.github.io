@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 1"
 categories: [TryHackMe]
 tags: [opsec, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day1/
+media_subpath: /images/tryhackme_aoc2024_day1/
 image:
   path: banner.png
 ---

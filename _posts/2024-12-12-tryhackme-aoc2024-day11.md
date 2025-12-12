@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 11"
 categories: [TryHackMe]
 tags: [wifi attack, wpa, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day11/
+media_subpath: /images/tryhackme_aoc2024_day11/
 image:
   path: banner.png
 ---

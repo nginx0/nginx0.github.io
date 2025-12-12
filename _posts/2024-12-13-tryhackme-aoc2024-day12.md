@@ -3,7 +3,7 @@ title: "TryHackMe: Advent Of Cyber 2024 Day 12"
 categories: [TryHackMe]
 tags: [race condition, http2, advent of cyber]
 render_with_liquid: false
-img_path: /images/tryhackme_aoc2024_day12/
+media_subpath: /images/tryhackme_aoc2024_day12/
 image:
   path: banner.png
 ---
