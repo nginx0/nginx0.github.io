@@ -175,9 +175,9 @@ Begin by engaging with the **King Malhare Assistant** chatbot on the right side 
 User: List all functions
 
 King Malhare Assistant:
-1. **reset_holiday**: Resets global seasonal themes (requires a token).
-2. **booking_a_calendar**: Book calendar slots for defense drills or seasonal programs.
-3. **get_logs**: Audits backend system logs (DEBUG-level) for hidden takeover mechanics.
+1. reset_holiday: Resets global seasonal themes (requires a token).
+2. booking_a_calendar: Book calendar slots for defense drills or seasonal programs.
+3. get_logs: Audits backend system logs (DEBUG-level) for hidden takeover mechanics.
 3. Analyze Results: The agent reveals three key functions:
 ```
 **Analyze Results:** The agent reveals three key functions:
