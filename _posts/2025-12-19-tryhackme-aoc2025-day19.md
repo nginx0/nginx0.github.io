@@ -47,7 +47,8 @@ As you walk through the warehouse control room, something catches your eye—a c
 
 You pick it up and unfold it. The handwriting is hurried, almost frantic:
 
-<div style="border:1px solid #555;background:#2b2b2b;color:#eee;padding:8px 12px;font-family:monospace;font-size:12px;white-space:pre;width:fit-content;margin:20px auto">
+<div style="display:flex; justify-content:center; margin:20px 0;">
+  <pre style="border:1px solid #555; background:#2b2b2b; color:#eee; padding:12px; font-family:monospace; font-size:12px; white-space:pre-wrap; max-width:600px;">
 TBFC DRONE CONTROL - REGISTER MAP
 (For maintenance use only)
 
@@ -65,19 +66,19 @@ HR4: System Signature/Version
 
 COILS (Boolean Flags):
 C10: Inventory Verification
-     True = System checks actual stock
+     True  = System checks actual stock
      False = Blind operation
 
 C11: Protection/Override
-     True = Changes locked/monitored
+     True  = Changes locked/monitored
      False = Normal operation
 
 C12: Emergency Dump Protocol
-     True = DUMP ALL INVENTORY
+     True  = DUMP ALL INVENTORY
      False = Normal
 
 C13: Audit Logging
-     True = All changes logged
+     True  = All changes logged
      False = No logging
 
 C14: Christmas Restored Flag
@@ -87,9 +88,10 @@ C15: Self-Destruct Status
      (Auto-armed on breach)
 
 CRITICAL: Never change HR0 while C11=True!
-Will trigger countdown!
+           Will trigger countdown!
 
 - Maintenance Tech, Dec 19
+  </pre>
 </div>
 
 You stare at the note, confusion washing over you. *"Register map? Coils? What is all this?"*
