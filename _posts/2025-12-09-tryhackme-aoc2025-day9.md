@@ -238,4 +238,3 @@ What is the flag inside the encrypted zip file?
     <i onclick="navigator.clipboard.writeText('THM{Cr4ck1n6_z1p$_1s_34$yyyy}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
-

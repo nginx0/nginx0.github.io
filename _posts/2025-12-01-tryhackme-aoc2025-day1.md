@@ -240,7 +240,3 @@ Finally, what flag did Sir Carrotbane leave in the root bash history?
     <i onclick="navigator.clipboard.writeText('THM{until-we-meet-again}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
-
-
-
-

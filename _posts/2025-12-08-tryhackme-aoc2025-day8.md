@@ -234,5 +234,3 @@ What is the flag provided when SOC-mas is restored in the calendar?
     <i onclick="navigator.clipboard.writeText('THM{XMAS_IS_COMING_BACK}')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
-
-

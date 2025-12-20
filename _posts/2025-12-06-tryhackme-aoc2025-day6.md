@@ -340,4 +340,4 @@ Make sure to have executed HopHelper.exe while ProcMon was open and capturing ev
   <img src="wm2.png" width="600" height="600">
 </p>
 
-</details>
+</detail

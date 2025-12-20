@@ -192,8 +192,3 @@ Exploiting the IDOR found in the `view_accounts` parameter, what is the `user_id
     <i onclick="navigator.clipboard.writeText('15')" style="float:right; cursor:pointer; font-size:16px;">&#x1F4C4;</i>
   </div>
 </details>
-
-
-
-
-
