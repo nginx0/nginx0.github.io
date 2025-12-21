@@ -169,7 +169,7 @@ Connection: keep-alive
 4. Choose Last-byte sync
 5. Send all requests
 6. To retrieve second flag, repeat the same steps for the second product.
-6  The flag appears once stock becomes negative
+7. The flag appears once stock becomes negative
 
 ## Answer
 
