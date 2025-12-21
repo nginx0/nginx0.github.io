@@ -123,6 +123,9 @@ The attacker logged in and made a normal purchase of the limited SleighToy. Usin
 - Implement **idempotency keys** for checkout requests to ensure duplicates aren’t processed multiple times.
 - Apply **rate limiting** or concurrency controls to block rapid, repeated checkout attempts from the same user or session.
 
+> Understanding the "Race Window" is just the start. This [post](https://dev.to/deoxys/one-bug-many-faces-understanding-every-type-of-race-condition-vulnerability-4po3) explores how this vulnerability manifests across different environment.
+{: .prompt-info }
+
 ## Walkthrough
 
 **Flag 1**
