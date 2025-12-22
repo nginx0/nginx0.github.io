@@ -8,6 +8,8 @@ image:
   path: banner.png
 ---
 
+Learn how to exploit a race condition attack to oversell the limited-edition SleighToy.
+
 <h2 style="color:#A64AC9; text-align:center; font-weight:700; font-size:1.8em; text-shadow: 1px 0 #A64AC9, -1px 0 #A64AC9, 0 1px #A64AC9, 0 -1px #A64AC9;">
   The Story
 </h2>
