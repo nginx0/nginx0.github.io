@@ -444,7 +444,7 @@ What is the password for the first lock?
   </div>
 </details>
 
-### Question 1
+### Question 2
 
 What is the password for the second lock?
 
@@ -458,7 +458,7 @@ What is the password for the second lock?
   </div>
 </details>
 
-### Question 2
+### Question 3
 
 What is the password for the third lock?
 
@@ -472,7 +472,7 @@ What is the password for the third lock?
   </div>
 </details>
 
-### Question 3
+### Question 4
 
 What is the password for the fourth lock?
 
@@ -486,7 +486,7 @@ What is the password for the fourth lock?
   </div>
 </details>
 
-### Question 4
+### Question 5
 
 What is the password for the fifth lock?
 
@@ -500,7 +500,7 @@ What is the password for the fifth lock?
   </div>
 </details>
 
-### Question 5
+### Question 6
 
 What is the retrieved flag?
 

@@ -164,7 +164,7 @@ Connection: keep-alive
 **Trigger the Race Condition**
 
 1. Create a new group in repeater tab
-2. Right clib on group tab > Duplicate (50 times)
+2. Right click on group tab > Duplicate (50 times)
 3. Select Send group in parallel
 4. Choose Last-byte sync
 5. Send all requests
