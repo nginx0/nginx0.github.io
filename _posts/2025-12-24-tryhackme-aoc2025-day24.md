@@ -183,7 +183,7 @@ He slowly approached McSkidy, who suddenly felt underprepared. Just when she tho
 “What I should have done a long time ago. What’s right!” Sir Breachblocker III slammed his shield into the snow and drew his sword.
 “GO!” he shouted, turning to McSkidy.
 
-![](mcskidy.png){: width="890" height="2000"}
+![](mcskidy.png){: width="600" height="600"}
 
 ## The End of the Road
 
