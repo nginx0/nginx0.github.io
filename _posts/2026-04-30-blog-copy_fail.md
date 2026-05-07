@@ -72,7 +72,7 @@ Run your distribution's package manager and reboot to ensure the patched kernel 
 
 ## Immediate Workaround : Disabling the Vulnerable Module
 
-If an immediate reboot or patch is not feasible, you can neutralize the attack vector by disabling the `algif_aead` module. This is safe for nearly all production environments because core services—including SSH, LUKS (disk encryption), IPsec, and OpenSSL typically interact with the kernel’s crypto API directly rather than using the `AF_ALG` userspace interface.
+If an immediate reboot or patch is not feasible, you can neutralize the attack vector by disabling the `algif_aead` module. This is safe for nearly all production environments because core services including SSH, LUKS (disk encryption), IPsec, and OpenSSL typically interact with the kernel’s crypto API directly rather than using the `AF_ALG` userspace interface.
 
 Execute the following to prevent the module from loading:
 
