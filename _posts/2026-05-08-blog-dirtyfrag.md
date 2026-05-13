@@ -11,6 +11,7 @@ image:
 [![Link](header.png){: width="1200" height="600" }](https://dirtyfrag.io/)
 
 A universal Linux LPE chaining two vulns in `xfrm-ESP` and `RxRPC`. A successor class to Dirty Pipe & Copy Fail.
+
 Ubuntu / RHEL / Fedora / openSUSE / CentOS / AlmaLinux, and more.
 
 # Dirty Frag: Two Kernel Bugs, One Root Shell, Zero Patches
