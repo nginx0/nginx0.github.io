@@ -54,8 +54,6 @@ The name comes from the core bug itself, the socket buffer `(skb)` forgets that 
 
 ## How Fragnesia's write primitive works
 
-Before the splice happens, the exploit calls `unshare(CLONE_NEWUSER | CLONE_NEWNET)` to bootstrap `CAP_NET_ADMIN` inside a user namespace, no real host privileges required. This is what makes the exploit universal, any unprivileged local user can pull this off.
-
 Fragnesia exploits what happens when a TCP socket transitions to **espintcp ULP (Upper Layer Protocol) mode after data has already been spliced from a file into the receive queue**.
 
 The attack sequence is as follows:
